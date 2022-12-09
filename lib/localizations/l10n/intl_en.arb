@@ -1,1 +1,16 @@
-{}
+{
+    "success_response_message": "success",
+    "no_content_response_message": "no_content",
+    "bad_request_response_message": "ResponseMessage.BAD_REQUEST",
+    "forbidden_response_message": " ResponseMessage.FORBIDDEN",
+    "unauthorized_response_message": "ResponseMessage.UNAUTORISED",
+    "not_found_response_message": "ResponseMessage.NOT_FOUND",
+    "internal_server_error_response_message": " ResponseMessage.INTERNAL_SERVER_ERROR",
+    "connect_timeout_response_message": "ResponseMessage.CONNECT_TIMEOUT",
+    "cancel_response_message": "ResponseMessage.CANCEL",
+    "recieve_timeout_response_message": "ResponseMessage.RECIEVE_TIMEOUT",
+    "send_timeout_response_message": "ResponseMessage.SEND_TIMEOUT",
+    "cache_error_response_message": "ResponseMessage.CACHE_ERROR",
+    "not_internet_connection_response_message": "ResponseMessage.NO_INTERNET_CONNECTION",
+    "default_response_message": "ResponseMessage.DEFAULT"
+}

@@ -21,5 +21,38 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "bad_request_response_message":
+            MessageLookupByLibrary.simpleMessage("ResponseMessage.BAD_REQUEST"),
+        "cache_error_response_message":
+            MessageLookupByLibrary.simpleMessage("ResponseMessage.CACHE_ERROR"),
+        "cancel_response_message":
+            MessageLookupByLibrary.simpleMessage("ResponseMessage.CANCEL"),
+        "connect_timeout_response_message":
+            MessageLookupByLibrary.simpleMessage(
+                "ResponseMessage.CONNECT_TIMEOUT"),
+        "default_response_message":
+            MessageLookupByLibrary.simpleMessage("ResponseMessage.DEFAULT"),
+        "forbidden_response_message":
+            MessageLookupByLibrary.simpleMessage(" ResponseMessage.FORBIDDEN"),
+        "internal_server_error_response_message":
+            MessageLookupByLibrary.simpleMessage(
+                " ResponseMessage.INTERNAL_SERVER_ERROR"),
+        "no_content_response_message":
+            MessageLookupByLibrary.simpleMessage("no_content"),
+        "not_found_response_message":
+            MessageLookupByLibrary.simpleMessage("ResponseMessage.NOT_FOUND"),
+        "not_internet_connection_response_message":
+            MessageLookupByLibrary.simpleMessage(
+                "ResponseMessage.NO_INTERNET_CONNECTION"),
+        "recieve_timeout_response_message":
+            MessageLookupByLibrary.simpleMessage(
+                "ResponseMessage.RECIEVE_TIMEOUT"),
+        "send_timeout_response_message": MessageLookupByLibrary.simpleMessage(
+            "ResponseMessage.SEND_TIMEOUT"),
+        "success_response_message":
+            MessageLookupByLibrary.simpleMessage("success"),
+        "unauthorized_response_message":
+            MessageLookupByLibrary.simpleMessage("ResponseMessage.UNAUTORISED")
+      };
 }

@@ -49,6 +49,146 @@ class AppLocalizations {
   static AppLocalizations? maybeOf(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
+
+  /// `success`
+  String get success_response_message {
+    return Intl.message(
+      'success',
+      name: 'success_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no_content`
+  String get no_content_response_message {
+    return Intl.message(
+      'no_content',
+      name: 'no_content_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.BAD_REQUEST`
+  String get bad_request_response_message {
+    return Intl.message(
+      'ResponseMessage.BAD_REQUEST',
+      name: 'bad_request_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` ResponseMessage.FORBIDDEN`
+  String get forbidden_response_message {
+    return Intl.message(
+      ' ResponseMessage.FORBIDDEN',
+      name: 'forbidden_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.UNAUTORISED`
+  String get unauthorized_response_message {
+    return Intl.message(
+      'ResponseMessage.UNAUTORISED',
+      name: 'unauthorized_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.NOT_FOUND`
+  String get not_found_response_message {
+    return Intl.message(
+      'ResponseMessage.NOT_FOUND',
+      name: 'not_found_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` ResponseMessage.INTERNAL_SERVER_ERROR`
+  String get internal_server_error_response_message {
+    return Intl.message(
+      ' ResponseMessage.INTERNAL_SERVER_ERROR',
+      name: 'internal_server_error_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.CONNECT_TIMEOUT`
+  String get connect_timeout_response_message {
+    return Intl.message(
+      'ResponseMessage.CONNECT_TIMEOUT',
+      name: 'connect_timeout_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.CANCEL`
+  String get cancel_response_message {
+    return Intl.message(
+      'ResponseMessage.CANCEL',
+      name: 'cancel_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.RECIEVE_TIMEOUT`
+  String get recieve_timeout_response_message {
+    return Intl.message(
+      'ResponseMessage.RECIEVE_TIMEOUT',
+      name: 'recieve_timeout_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.SEND_TIMEOUT`
+  String get send_timeout_response_message {
+    return Intl.message(
+      'ResponseMessage.SEND_TIMEOUT',
+      name: 'send_timeout_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.CACHE_ERROR`
+  String get cache_error_response_message {
+    return Intl.message(
+      'ResponseMessage.CACHE_ERROR',
+      name: 'cache_error_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.NO_INTERNET_CONNECTION`
+  String get not_internet_connection_response_message {
+    return Intl.message(
+      'ResponseMessage.NO_INTERNET_CONNECTION',
+      name: 'not_internet_connection_response_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ResponseMessage.DEFAULT`
+  String get default_response_message {
+    return Intl.message(
+      'ResponseMessage.DEFAULT',
+      name: 'default_response_message',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

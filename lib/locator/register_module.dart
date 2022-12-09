@@ -6,6 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 @module
 abstract class RegisterModule {
+  
   @injectable
   GoogleSignIn get googleSignIn => GoogleSignIn();
 

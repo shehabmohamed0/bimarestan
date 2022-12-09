@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CustomSelector<T, S> extends StatelessWidget {
-  const CustomSelector({
+class ViewModelSelector<T, S> extends StatelessWidget {
+  const ViewModelSelector({
     super.key,
     required this.selector,
     required this.builder,

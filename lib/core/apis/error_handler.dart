@@ -17,10 +17,10 @@ class Failure {
 class ErrorHandler implements Exception {
   late Failure failure;
 
-  ErrorHandler.handle(dynamic error) {
-    if (error is DioError) {
+  ErrorHandler.handle(dynamic e) {
+    if (e is DioError) {
       // dio error so its an error from response of the API or from dio itself
-      failure = _handleError(error);
+      failure = _handleError(e);
     } else {
       // default error
       failure = DataSource.DEFAULT.getFailure();

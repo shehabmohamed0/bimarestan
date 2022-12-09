@@ -9,6 +9,6 @@ final locator = GetIt.I;
   preferRelativeImports: true, // default
   asExtension: false, // default
 )
-Future<void> configureDependencies(GetIt locator) async {
+Future<void> configureDependencies() async {
   await $initGetIt(locator);
 }

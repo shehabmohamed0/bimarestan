@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 
 class ColorManager {
-  ColorManager._();
-  static const primary = Color(0xff4390E0);
-  static const onPrimary = Colors.white;
-  static const secondary = Color(0xff4269CE);
-  static const onSecondary = Colors.white;
-  static const error = Colors.red;
-  static const onError = Colors.white;
-  static const background = Color(0xffF9F9F9);
-  static const onBackground = Colors.black;
-  static const surface = Colors.white;
-  static const onSurface = Colors.black;
-  static const onTertiary = Colors.white;
-  static const tertiary = Colors.red;
-
-  static const appGreen = Color(0xff71A43F);
-  static const appTeal = Color(0xffF2A911);
-  static const appDarkGreen = Color(0xff05876D);
-  static const appPetrol = Color(0xff8DB5AD);
-  static const appRed = Color(0xffDB1313);
-  static const appBlackBlue = Color(0xff152F55);
-  static const appCyan = Color(0xff45BEAB);
-  static const appDarkBlue = Color(0xff2B5B8D);
-  static const appYellowGrey = Color(0xff969B85);
+      static const primary= Color(0xFF2C5AB6);
+      static const onPrimary= Color(0xFFFFFFFF);
+      static const primaryContainer= Color(0xFFD9E2FF);
+      static const onPrimaryContainer= Color(0xFF001946);
+      static const secondary= Color(0xFF585E71);
+      static const onSecondary= Color(0xFFFFFFFF);
+      static const secondaryContainer= Color(0xFFDCE2F9);
+      static const onSecondaryContainer= Color(0xFF151B2C);
+      static const tertiary= Color(0xFF0056D0);
+      static const onTertiary= Color(0xFFFFFFFF);
+      static const tertiaryContainer= Color(0xFFDAE2FF);
+      static const onTertiaryContainer= Color(0xFF001847);
+      static const error= Color(0xFFBA1A1A);
+      static const errorContainer= Color(0xFFFFDAD6);
+      static const onError= Color(0xFFFFFFFF);
+      static const onErrorContainer= Color(0xFF410002);
+      static const background= Color(0xFFFEFBFF);
+      static const onBackground= Color(0xFF1B1B1F);
+      static const surface= Color(0xFFFEFBFF);
+      static const onSurface= Color(0xFF1B1B1F);
+      static const surfaceVariant= Color(0xFFE1E2EC);
+      static const onSurfaceVariant= Color(0xFF44464F);
+      static const outline= Color(0xFF757780);
+      static const onInverseSurface= Color(0xFFF2F0F4);
+      static const inverseSurface= Color(0xFF303034);
+      static const inversePrimary= Color(0xFFB1C5FF);
+      static const shadow= Color(0xFF000000);
+      static const surfaceTint= Color(0xFF2C5AB6);
 }

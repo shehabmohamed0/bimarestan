@@ -1,3 +1,4 @@
+
 enum ViewState { initial, loading, error, success }
 
 extension ViewStatus on ViewState {

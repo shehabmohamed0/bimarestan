@@ -1,17 +1,16 @@
-import '../locator/locator.dart';
-import 'package:bimarestan/presentation/home/home_view.dart';
-import 'package:bimarestan/presentation/home/home_view_model.dart';
-import 'package:bimarestan/presentation/home/home_view_model2.dart';
+import 'package:bimarestan/presentation/auth/signup/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../presentation/home/home_view2.dart';
+import '../locator/locator.dart';
+import '../presentation/auth/login/login_view.dart';
+import '../presentation/auth/login/login_view_model.dart';
+import '../presentation/home/home_view.dart';
+import '../presentation/home/home_view_model.dart';
 import '../presentation/startup/startup_view.dart';
 import 'routes.dart';
 
 class AppRouter {
-  final homeVM = locator<HomeViewModel>();
-
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.startup:
@@ -19,18 +18,28 @@ class AppRouter {
           settings: settings,
           builder: (context) => const StartupView(),
         );
-      case '${Routes.home}2':
+
+      case Routes.login:
         return _getPageRoute(
           settings: settings,
-          builder: (context) => const HomeView2(),
+          builder: (context) => ChangeNotifierProvider<LoginViewModel>(
+            create: (context) => locator(),
+            child: const LoginView(),
+          ),
+        );
+      case Routes.signup:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => ChangeNotifierProvider<LoginViewModel>(
+            create: (context) => locator(),
+            child: const SignupView(),
+          ),
         );
       case Routes.home:
-        final model = settings.arguments as HomeViewModel2;
-
         return _getPageRoute(
           settings: settings,
-          builder: (context) => ChangeNotifierProvider.value(
-            value: model,
+          builder: (context) => ChangeNotifierProvider(
+            create: (context) => locator<HomeViewModel>(),
             child: const HomeView(),
           ),
         );

@@ -14,6 +14,6 @@ class StartupViewModel extends ChangeNotifier {
 
   Future<void> handleStartupLogic() async {
     await Future.delayed(AppConstants.duration3s);
-    _navigationService.navigateTo(Routes.home);
+    _navigationService.navigateTo(Routes.login);
   }
 }

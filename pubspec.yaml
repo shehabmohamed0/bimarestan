@@ -29,6 +29,8 @@ dependencies:
   path: 1.8.2
   flutter_svg: ^1.1.6
   stacked_services: ^0.9.8
+  google_fonts: ^3.0.1
+
   # firebase
   # firebase_core: ^2.2.0
   # firebase_auth: ^4.1.2
@@ -58,6 +60,9 @@ dependencies:
   freezed_annotation: ^2.2.0
   injectable: ^2.0.1
   image_picker: ^0.8.6
+  flutter_screenutil: ^5.6.0
+  device_preview: ^1.1.0
+  responsive_framework: ^0.2.0
 
 dev_dependencies:
   build_runner: ^2.3.2
@@ -74,6 +79,7 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+    - assets/images/svg/
 
 
 flutter_intl:

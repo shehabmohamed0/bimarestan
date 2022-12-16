@@ -12,7 +12,7 @@ import 'package:bimarestan/presentation/auth/login/login_view_model.dart'
     as _i7;
 import 'package:bimarestan/presentation/auth/signup/sigup_view_model.dart'
     as _i11;
-import 'package:bimarestan/presentation/home/home_view_model.dart' as _i5;
+import 'package:bimarestan/presentation/home/home_landing_view_model.dart' as _i5;
 import 'package:bimarestan/presentation/startup/startup_view_model.dart'
     as _i13;
 import 'package:get_it/get_it.dart' as _i1;

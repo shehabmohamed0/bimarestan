@@ -8,8 +8,8 @@ class AppElevatedButton extends StatelessWidget {
     super.key,
     this.height,
     this.width,
-    required this.child,
     required this.onPressed,
+    required this.child,
   });
 
   final double? height;
@@ -26,6 +26,7 @@ class AppElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorManager.primary,
+          foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.sp),
           ),

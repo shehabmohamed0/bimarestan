@@ -1,18 +1,19 @@
-import 'package:bimarestan/core/resources/color_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+import 'color_manager.dart';
 import 'font_manager.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData(
-      // useMaterial3: true,
+      useMaterial3: true,
       primaryColor: ColorManager.primary,
       fontFamily: FontConstants.fontFamily,
       // textTheme: GoogleFonts.seg,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
+        elevation: 5,
+        backgroundColor: ColorManager.primary,
+        foregroundColor: Colors.white,
       ),
       inputDecorationTheme: const InputDecorationTheme(
         isDense: false,

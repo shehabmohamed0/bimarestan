@@ -1,12 +1,14 @@
 import 'package:bimarestan/presentation/auth/signup/signup_view.dart';
+import 'package:bimarestan/presentation/home/home_page/search_departments_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../locator/locator.dart';
 import '../presentation/auth/login/login_view.dart';
 import '../presentation/auth/login/login_view_model.dart';
-import '../presentation/home/home_view.dart';
-import '../presentation/home/home_view_model.dart';
+import '../presentation/home/home_landing_view.dart';
+import '../presentation/home/home_landing_view_model.dart';
+import '../presentation/home/home_page/department_doctors_view.dart';
 import '../presentation/startup/startup_view.dart';
 import 'routes.dart';
 
@@ -42,6 +44,16 @@ class AppRouter {
             create: (context) => locator<HomeViewModel>(),
             child: const HomeView(),
           ),
+        );
+      case Routes.departments:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const SearchDepartmentView(),
+        );
+      case Routes.departmentDoctors:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const DepartmentDoctorsView(),
         );
       default:
         return MaterialPageRoute(

@@ -1,3 +1,4 @@
+import 'package:bimarestan/core/resources/assets_manager.dart';
 import 'package:bimarestan/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,12 +16,19 @@ class LoginView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              height: 280.h,
+            ColoredBox(
               color: ColorManager.primary,
+              child: Container(
+                height: 270.h,
+                color: ColorManager.primary,
+                child: Image.asset(
+                  ImageAssets.logo_white,
+                  fit: BoxFit.contain,
+                ),
+              ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 56.w),
+              padding: EdgeInsets.symmetric(horizontal: 48.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -29,6 +37,7 @@ class LoginView extends StatelessWidget {
                     'Email address',
                     style: TextStyle(fontSize: 18.sp),
                   ),
+                  SizedBox(height: 28.h),
                   TextFormField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
@@ -37,9 +46,10 @@ class LoginView extends StatelessWidget {
                   ),
                   SizedBox(height: 28.h),
                   Text(
-                    'Email address',
+                    'Password',
                     style: TextStyle(fontSize: 18.sp),
                   ),
+                  SizedBox(height: 28.h),
                   TextFormField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
@@ -49,10 +59,12 @@ class LoginView extends StatelessWidget {
                   SizedBox(height: 60.h),
                   AppElevatedButton(
                     height: 60.h,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed(Routes.home);
+                    },
                     child: Text(
                       'Login',
-                      style: TextStyle(fontSize: 26.sp),
+                      style: TextStyle(fontSize: 20.sp),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -80,7 +92,7 @@ class LoginView extends StatelessWidget {
                           child: Text(
                             'Sign Up',
                             style: TextStyle(
-                              fontSize: 26.sp,
+                              fontSize: 24.sp,
                               color: ColorManager.primary,
                             ),
                           ),

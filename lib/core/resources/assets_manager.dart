@@ -2,9 +2,11 @@
 
 const String imagePath = "assets/images";
 const String svgImagePath = "assets/images/svg";
+const String svgIconPath = "assets/images/svg/icons";
 
 class ImageAssets {
   static const logo = '$imagePath/logo.png';
+  static const logo_white = '$imagePath/logo-white.png';
 }
 
 class SvgAssets {
@@ -14,7 +16,7 @@ class SvgAssets {
 }
 
 class IconAssets {
-  // static const car = '$svgIcons/car.svg';
+  static const car = '$svgIconPath/heart-pulse-solid.svg';
 }
 
 class JsonAssets {}

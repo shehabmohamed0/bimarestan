@@ -30,6 +30,7 @@ dependencies:
   flutter_svg: ^1.1.6
   stacked_services: ^0.9.8
   google_fonts: ^3.0.1
+  font_awesome_flutter: ^10.3.0
 
   # firebase
   # firebase_core: ^2.2.0
@@ -80,6 +81,7 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/images/svg/
+    - assets/images/svg/icons/
 
 
 flutter_intl:

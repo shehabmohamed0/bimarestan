@@ -18,12 +18,13 @@ class LoginView extends StatelessWidget {
           children: [
             ColoredBox(
               color: ColorManager.primary,
-              child: Container(
-                height: 270.h,
-                color: ColorManager.primary,
-                child: Image.asset(
-                  ImageAssets.logo_white,
-                  fit: BoxFit.contain,
+              child: SafeArea(
+                child: Container(
+                  height: 210.h,
+                  color: ColorManager.primary,
+                  child: Image.asset(
+                    ImageAssets.logo_white,
+                  ),
                 ),
               ),
             ),
@@ -32,7 +33,7 @@ class LoginView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 94.h),
+                  SizedBox(height: 74.h),
                   Text(
                     'Email address',
                     style: TextStyle(fontSize: 18.sp),

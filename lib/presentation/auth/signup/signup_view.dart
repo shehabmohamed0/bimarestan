@@ -17,12 +17,14 @@ class SignupView extends StatelessWidget {
           children: [
             ColoredBox(
               color: ColorManager.primary,
-              child: Container(
-                height: 270.h,
-                color: ColorManager.primary,
-                child: Image.asset(
-                  ImageAssets.logo_white,
-                  fit: BoxFit.contain,
+              child: SafeArea(
+                child: Container(
+                  height: 210.h,
+                  color: ColorManager.primary,
+                  child: Image.asset(
+                    ImageAssets.logo_white,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),

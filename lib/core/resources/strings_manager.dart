@@ -1,6 +1,7 @@
 class AppStrings {
-  static const baseURL = 'https://api-garage.easyntec.com';
-  static const apiURL = '$baseURL/v1';
+  // static const baseURL = 'https://api-garage.easyntec.com';
+  static const apiURL =
+      'https://doctor-app-backend-production-f779.up.railway.app:443';
 }
 
 class AppLocalKeys {

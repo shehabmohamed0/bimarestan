@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:stacked_services/stacked_services.dart' hide SnackbarService;
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
+              FormBuilderLocalizations.delegate,
             ],
             localeResolutionCallback: (deviceLocale, supportedLocales) {
               if (supportedLocales

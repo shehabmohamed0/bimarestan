@@ -39,14 +39,10 @@ class HttpBuilder {
       InterceptorsWrapper(
         onRequest: (options, handler) async {
           // final token = _sharedPreferences.getString('token');
-          // final token = await FirebaseAuth.instance.currentUser?.getIdToken();
-          // if (token != null && token.isNotEmpty) {
-          //   options.headers['Authorization'] = 'Bearer $token';
-          // }
+       
           // options.headers['Content-Language'] = Localizations.localeOf(
           //   StackedService.navigatorKey!.currentContext!,
           // ).languageCode;
-          // options.headers['source-app'] = "clientApp";
 
           handler.next(options);
         },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class DepartmentDoctorsView extends StatelessWidget {
   const DepartmentDoctorsView({super.key});
@@ -22,21 +23,27 @@ class DepartmentDoctorsView extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(
-          horizontal: 42.w,
-          vertical: 24.h,
+      body: AnimationLimiter(
+        child: ListView.separated(
+          padding: EdgeInsets.symmetric(
+            horizontal: 42.w,
+            vertical: 24.h,
+          ),
+          itemCount: 4,
+          itemBuilder: (context, index) => AnimationConfiguration.staggeredList(
+            position: index,
+            duration: const Duration(milliseconds: 1000),
+            child: SlideAnimation(
+              verticalOffset: -50.0,
+              delay: Duration(milliseconds: 100 * index),
+              child: FadeInAnimation(
+                duration: const Duration(milliseconds: 1000),
+                child: HealthCard(),
+              ),
+            ),
+          ),
+          separatorBuilder: (context, index) => SizedBox(height: 20.h),
         ),
-        children: [
-          HealthCard(),
-          SizedBox(height: 20.h),
-          HealthCard(),
-          SizedBox(height: 20.h),
-          HealthCard(),
-          SizedBox(height: 20.h),
-          HealthCard(),
-          SizedBox(height: 20.h),
-        ],
       ),
     );
   }

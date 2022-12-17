@@ -9,6 +9,7 @@ ThemeData getApplicationTheme() {
       primaryColor: ColorManager.primary,
       fontFamily: FontConstants.fontFamily,
       // textTheme: GoogleFonts.seg,
+      scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         elevation: 5,
@@ -29,7 +30,7 @@ ThemeData getApplicationTheme() {
         onError: Colors.white,
         background: Colors.white,
         onBackground: Colors.black45,
-        surface: Color(0xffF9F9F9),
+        surface: Colors.white,
         onSurface: Colors.black45,
       ) // textTheme: Typography.englishLike2021.apply(fontSizeFactor: 1.sp),
       );

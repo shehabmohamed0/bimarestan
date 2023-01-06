@@ -1,0 +1,101 @@
+Anesthsiology    
+Cardiology    
+Colorectal Surgery    
+Dental Health    
+Dermatology    
+Endocrinology    
+Gastroenterology    
+geriatrics    
+Gynecology    
+Hematology    
+Immunology    
+Intensive Care    
+Medical Genetics    
+Nephrology    
+Neurology    
+Neurosurgery    
+Nuclear Medicine    
+Obstetrics And Gynaecology    
+Occupational Medicine    
+Oncology    
+Ophthalmology    
+Otorhinolaryngology    
+Pathology    
+Pediatrics    
+Physical Therapy    
+Plastic Surgery    
+Psychiatry    
+Pulmonology    
+Radiology    
+Rheumatology    
+Urology    
+Surgery    
+
+
+ 
+ 
+ 
+ 
+ 
+'assets/images/png/anesthesiology.png'
+'assets/images/png/cardiology.png'
+'assets/images/png/colorectal-surgery.png'
+'assets/images/png/dental-health.png'
+'assets/images/png/dermatology.png'
+'assets/images/png/endocrinology.png'
+'assets/images/png/gastroenterology.png'
+'assets/images/png/geriatrics.png'
+'assets/images/png/gynecology.png'
+'assets/images/png/hematology.png'
+'assets/images/png/immunology.png'
+'assets/images/png/intensive-care.png'
+'assets/images/png/medical-genetics.png'
+'assets/images/png/nephrology.png'
+'assets/images/png/neurology.png'
+'assets/images/png/neuroradiology.png'
+'assets/images/png/neurosurgery.png'
+'assets/images/png/nuclear-medicine.png'
+'assets/images/png/obstetrics-and-gynaecology.png'
+'assets/images/png/occupational-medicine.png'
+'assets/images/png/oncology.png'
+'assets/images/png/ophthalmology.png'
+'assets/images/png/orthopedics.png'
+'assets/images/png/otorhinolaryngology.png'
+'assets/images/png/pathology.png'
+'assets/images/png/pediatrics.png'
+'assets/images/png/physical-therapy.png'
+'assets/images/png/plastic-surgery.png'
+'assets/images/png/psychiatry.png'
+'assets/images/png/pulmonology.png'
+'assets/images/png/radiology.png'
+'assets/images/png/rheumatology.png'
+'assets/images/png/urology.png'
+'assets/images/png/surgery.png'
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

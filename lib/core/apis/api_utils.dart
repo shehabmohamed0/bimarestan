@@ -38,12 +38,13 @@ class HttpBuilder {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          // final token = _sharedPreferences.getString('token');
-       
+          final token = _sharedPreferences.getString('token');
+          token != null
+              ? options.headers['Authorization'] = 'Bearer $token'
+              : null;
           // options.headers['Content-Language'] = Localizations.localeOf(
           //   StackedService.navigatorKey!.currentContext!,
           // ).languageCode;
-
           handler.next(options);
         },
         onError: (err, handler) {

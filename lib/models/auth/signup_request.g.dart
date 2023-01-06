@@ -15,5 +15,11 @@ Map<String, dynamic> _$SignupRequestToJson(SignupRequest instance) =>
       'fullName': instance.fullName,
       'password': instance.password,
       'phone': instance.phone,
-      'userName': instance.userName,
+      'roleId': _$RoleIdEnumMap[instance.roleId]!,
     };
+
+const _$RoleIdEnumMap = {
+  RoleId.patient: 1,
+  RoleId.doctor: 2,
+  RoleId.nurse: 3,
+};

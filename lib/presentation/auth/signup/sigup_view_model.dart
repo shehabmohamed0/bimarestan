@@ -1,22 +1,20 @@
 // ignore_for_file: depend_on_referenced_packages, implementation_imports
 
-import 'dart:math';
-
-import 'package:bimarestan/core/services/snack_bar_service.dart';
-import 'package:bimarestan/core/utils/dialogs.dart';
-import 'package:bimarestan/locator/locator.dart';
-import 'package:bimarestan/logic/auth/auth_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl_phone_number_input/src/utils/phone_number.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../core/apis/error_handler.dart';
+import '../../../core/services/snack_bar_service.dart';
+import '../../../core/utils/dialogs.dart';
+import '../../../locator/locator.dart';
+import '../../../logic/auth/auth_service.dart';
 import '../../../models/auth/signup_request.dart';
 
 @injectable
 class SignupViewModel extends ChangeNotifier {
-  final AuthRepository _authRepository = locator<AuthRepository>();
+  final AuthService _authService = locator<AuthService>();
   final NavigationService _navigationService = locator<NavigationService>();
   final SnackBarService _snackBarService = locator<SnackBarService>();
 
@@ -49,7 +47,7 @@ class SignupViewModel extends ChangeNotifier {
     if (formKey.currentState!.validate()) {
       try {
         showLoadingDialog();
-        await _authRepository.signup(
+        await _authService.signup(
           SignupRequest(
             fullName: name.text.trim(),
             email: email.text.trim(),
@@ -58,12 +56,11 @@ class SignupViewModel extends ChangeNotifier {
             age: int.parse(age.text),
             address: address.text,
             description: description.text,
-            userName: Random().nextInt(1000).toString(),
           ),
         );
         dismissLoadingDialog();
         _navigationService.back();
-        _snackBarService.showSuccessSnackBar('Email created successfully');
+        // _snackBarService.showSuccessSnackBar('Email created successfully');
       } on ErrorHandler catch (e) {
         dismissLoadingDialog();
         _snackBarService.showErrorSnackBar(e.failure.message);

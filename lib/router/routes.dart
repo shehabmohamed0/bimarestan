@@ -1,9 +1,9 @@
 class Routes {
   Routes._();
   static const startup = '/';
-  static const login = '/login';
   static const signup = '/signup';
-  static const home = '/home';
+  static const landing = '/landing';
   static const departments = '/departments';
+  static const profile = '/profile';
   static const departmentDoctors = '/departmentDoctors';
 }

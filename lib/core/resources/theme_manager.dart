@@ -12,7 +12,6 @@ ThemeData getApplicationTheme() {
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
-        elevation: 5,
         backgroundColor: ColorManager.primary,
         foregroundColor: Colors.white,
       ),
@@ -28,7 +27,7 @@ ThemeData getApplicationTheme() {
         onSecondary: Colors.white,
         error: Colors.red,
         onError: Colors.white,
-        background: Colors.white,
+        background: Color(0xffF9F9F9),
         onBackground: Colors.black45,
         surface: Colors.white,
         onSurface: Colors.black45,

@@ -76,17 +76,13 @@ class LoginView extends StatelessWidget {
                                     AutovalidateMode.onUserInteraction,
                                 validator: FormBuilderValidators.compose([
                                   FormBuilderValidators.required(),
-                                  FormBuilderValidators.minLength(8),
+                                  FormBuilderValidators.minLength(6),
                                 ]),
                               ),
                               SizedBox(height: 60.h),
                               AppElevatedButton(
                                 height: 60.h,
-                                onPressed: () {
-                                  Navigator.of(context).pushReplacementNamed(
-                                    Routes.home,
-                                  );
-                                },
+                                onPressed: model.submit,
                                 child: Text(
                                   'Login',
                                   style: TextStyle(fontSize: 20.sp),

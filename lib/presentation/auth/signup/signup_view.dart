@@ -76,7 +76,7 @@ class SignupView extends StatelessWidget {
                                   labelText: 'Password',
                                   validator: FormBuilderValidators.compose([
                                     FormBuilderValidators.required(),
-                                    FormBuilderValidators.minLength(8),
+                                    FormBuilderValidators.minLength(6),
                                   ]),
                                   autovalidateMode:
                                       AutovalidateMode.onUserInteraction,

@@ -1,14 +1,15 @@
-import 'package:bimarestan/presentation/auth/signup/signup_view.dart';
-import 'package:bimarestan/presentation/home/home_page/search_departments_view.dart';
+import 'package:bimarestan/presentation/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../locator/locator.dart';
-import '../presentation/auth/login/login_view.dart';
+import '../presentation/auth/app/landing_view.dart';
 import '../presentation/auth/login/login_view_model.dart';
+import '../presentation/auth/signup/signup_view.dart';
 import '../presentation/home/home_landing_view.dart';
 import '../presentation/home/home_landing_view_model.dart';
 import '../presentation/home/home_page/department_doctors_view.dart';
+import '../presentation/reservation/search_speciality_view.dart';
 import '../presentation/startup/startup_view.dart';
 import 'routes.dart';
 
@@ -21,14 +22,6 @@ class AppRouter {
           builder: (context) => const StartupView(),
         );
 
-      case Routes.login:
-        return _getPageRoute(
-          settings: settings,
-          builder: (context) => ChangeNotifierProvider<LoginViewModel>(
-            create: (context) => locator(),
-            child: const LoginView(),
-          ),
-        );
       case Routes.signup:
         return _getPageRoute(
           settings: settings,
@@ -37,18 +30,21 @@ class AppRouter {
             child: const SignupView(),
           ),
         );
-      case Routes.home:
+
+      case Routes.landing:
         return _getPageRoute(
           settings: settings,
-          builder: (context) => ChangeNotifierProvider(
-            create: (context) => locator<HomeViewModel>(),
-            child: const HomeView(),
-          ),
+          builder: (context) => const LandingView(),
+        );
+      case Routes.profile:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const ProfileView(),
         );
       case Routes.departments:
         return _getPageRoute(
           settings: settings,
-          builder: (context) => const SearchDepartmentView(),
+          builder: (context) => const SearchSpecialtyView(),
         );
       case Routes.departmentDoctors:
         return _getPageRoute(

@@ -1,16 +1,16 @@
 {
-    "success_response_message": "success",
-    "no_content_response_message": "no_content",
-    "bad_request_response_message": "ResponseMessage.BAD_REQUEST",
-    "forbidden_response_message": " ResponseMessage.FORBIDDEN",
-    "unauthorized_response_message": "ResponseMessage.UNAUTORISED",
-    "not_found_response_message": "ResponseMessage.NOT_FOUND",
-    "internal_server_error_response_message": " ResponseMessage.INTERNAL_SERVER_ERROR",
-    "connect_timeout_response_message": "ResponseMessage.CONNECT_TIMEOUT",
-    "cancel_response_message": "ResponseMessage.CANCEL",
-    "recieve_timeout_response_message": "ResponseMessage.RECIEVE_TIMEOUT",
-    "send_timeout_response_message": "ResponseMessage.SEND_TIMEOUT",
-    "cache_error_response_message": "ResponseMessage.CACHE_ERROR",
-    "not_internet_connection_response_message": "ResponseMessage.NO_INTERNET_CONNECTION",
-    "default_response_message": "ResponseMessage.DEFAULT"
-  }
+  "success_response_message": "نجاح",
+  "no_content_response_message": "لا يوجد محتوى",
+  "bad_request_response_message": "طلب سيء",
+  "forbidden_response_message": "ممنوع",
+  "unauthorized_response_message": "غير مصرح",
+  "not_found_response_message": "غير موجود",
+  "internal_server_error_response_message": "خطأ في الخادم الداخلي",
+  "connect_timeout_response_message": "انتهاء وقت الاتصال",
+  "cancel_response_message": "تم الالغاء",
+  "recieve_timeout_response_message": "انتهاء وقت الاستلام",
+  "send_timeout_response_message": "انتهاء وقت الارسال",
+  "cache_error_response_message": "خطأ في الكاش",
+  "not_internet_connection_response_message": "لا يوجد اتصال بالانترنت",
+  "default_response_message": "خطأ غير معروف"
+}

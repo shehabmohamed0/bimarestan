@@ -28,6 +28,22 @@ class ErrorHandler implements Exception {
   }
 }
 
+class ResponseError {
+  String message;
+  String localizedMessage;
+  ResponseError({
+    required this.message,
+    required this.localizedMessage,
+  });
+
+  factory ResponseError.fromJson(Map<String, dynamic> json) {
+    return ResponseError(
+      message: json['message'] as String,
+      localizedMessage: json['localizedMessage'] as String,
+    );
+  }
+}
+
 Failure _handleError(DioError error) {
   switch (error.type) {
     case DioErrorType.connectTimeout:
@@ -40,9 +56,14 @@ Failure _handleError(DioError error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
+        if (error.response?.statusCode == 500) {
+          return DataSource.INTERNAL_SERVER_ERROR.getFailure();
+        }
+
+        final parsedResponse = ResponseError.fromJson(error.response!.data);
         return Failure(
           error.response?.statusCode ?? 0,
-          error.response?.statusMessage ?? "",
+          parsedResponse.localizedMessage,
         );
       } else {
         return DataSource.DEFAULT.getFailure();

@@ -6,15 +6,13 @@ import '../../models/auth/login_request.dart';
 import '../../models/auth/login_response.dart';
 import '../../models/auth/signup_request.dart';
 import '../../models/auth/signup_response.dart';
+import '../../models/profiles/profile.dart';
 
 @lazySingleton
-class AuthAPI with APIMixin {
-  @override
-  String get featurePath => '/bimarestan/user/addUser';
-
+class AuthAPI {
   Future<SignupResponse> signup(SignupRequest request) async {
     final response = await DioFactory.dio.post<Map<String, dynamic>>(
-      featurePath,
+      '/bimarestan/user/addUser',
       data: request.toJson(),
     );
     final model = SignupResponse.fromJson(response.data!);
@@ -27,6 +25,14 @@ class AuthAPI with APIMixin {
       data: request.toJson(),
     );
     final model = LoginResponse.fromJson(response.data!);
+    return model;
+  }
+
+  Future<Profile> decodeToken(String token) async {
+    final response = await DioFactory.dio.get<Map<String, dynamic>>(
+      '/bimarestan/authentication/current-user',
+    );
+    final model = Profile.fromJson(response.data!);
     return model;
   }
 }

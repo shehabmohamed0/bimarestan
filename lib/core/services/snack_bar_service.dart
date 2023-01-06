@@ -13,7 +13,7 @@ class SnackBarService {
         SnackBar(
           content: Text(
             errorMessage,
-            style: const TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.w600,
             ),
           ),

@@ -23,36 +23,32 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "bad_request_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.BAD_REQUEST"),
+            MessageLookupByLibrary.simpleMessage("طلب سيء"),
         "cache_error_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.CACHE_ERROR"),
+            MessageLookupByLibrary.simpleMessage("خطأ في الكاش"),
         "cancel_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.CANCEL"),
+            MessageLookupByLibrary.simpleMessage("تم الالغاء"),
         "connect_timeout_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                "ResponseMessage.CONNECT_TIMEOUT"),
+            MessageLookupByLibrary.simpleMessage("انتهاء وقت الاتصال"),
         "default_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.DEFAULT"),
+            MessageLookupByLibrary.simpleMessage("خطأ غير معروف"),
         "forbidden_response_message":
-            MessageLookupByLibrary.simpleMessage(" ResponseMessage.FORBIDDEN"),
+            MessageLookupByLibrary.simpleMessage("ممنوع"),
         "internal_server_error_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                " ResponseMessage.INTERNAL_SERVER_ERROR"),
+            MessageLookupByLibrary.simpleMessage("خطأ في الخادم الداخلي"),
         "no_content_response_message":
-            MessageLookupByLibrary.simpleMessage("no_content"),
+            MessageLookupByLibrary.simpleMessage("لا يوجد محتوى"),
         "not_found_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.NOT_FOUND"),
+            MessageLookupByLibrary.simpleMessage("غير موجود"),
         "not_internet_connection_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                "ResponseMessage.NO_INTERNET_CONNECTION"),
+            MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالانترنت"),
         "recieve_timeout_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                "ResponseMessage.RECIEVE_TIMEOUT"),
-        "send_timeout_response_message": MessageLookupByLibrary.simpleMessage(
-            "ResponseMessage.SEND_TIMEOUT"),
+            MessageLookupByLibrary.simpleMessage("انتهاء وقت الاستلام"),
+        "send_timeout_response_message":
+            MessageLookupByLibrary.simpleMessage("انتهاء وقت الارسال"),
         "success_response_message":
-            MessageLookupByLibrary.simpleMessage("success"),
+            MessageLookupByLibrary.simpleMessage("نجاح"),
         "unauthorized_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.UNAUTORISED")
+            MessageLookupByLibrary.simpleMessage("غير مصرح")
       };
 }

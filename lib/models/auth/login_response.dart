@@ -1,10 +1,10 @@
-import 'package:json_annotation/json_annotation.dart';
-part 'login_response.g.dart';
+import '../profiles/profile.dart';
+// part 'login_response.g.dart';
 
-@JsonSerializable(createToJson: false)
 class LoginResponse {
-  LoginResponse();
+  final Profile profile;
+  LoginResponse(this.profile);
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
+      LoginResponse(Profile.fromJson(json));
 }

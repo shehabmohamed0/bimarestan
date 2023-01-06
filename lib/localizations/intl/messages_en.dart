@@ -23,36 +23,32 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "bad_request_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.BAD_REQUEST"),
+            MessageLookupByLibrary.simpleMessage("Bad Request"),
         "cache_error_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.CACHE_ERROR"),
+            MessageLookupByLibrary.simpleMessage("Cache Error"),
         "cancel_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.CANCEL"),
+            MessageLookupByLibrary.simpleMessage("Canceled"),
         "connect_timeout_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                "ResponseMessage.CONNECT_TIMEOUT"),
+            MessageLookupByLibrary.simpleMessage("Connection Timeout"),
         "default_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.DEFAULT"),
+            MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "forbidden_response_message":
-            MessageLookupByLibrary.simpleMessage(" ResponseMessage.FORBIDDEN"),
+            MessageLookupByLibrary.simpleMessage(" Forbidden"),
         "internal_server_error_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                " ResponseMessage.INTERNAL_SERVER_ERROR"),
+            MessageLookupByLibrary.simpleMessage("Internal Server Error"),
         "no_content_response_message":
-            MessageLookupByLibrary.simpleMessage("no_content"),
+            MessageLookupByLibrary.simpleMessage("No Content"),
         "not_found_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.NOT_FOUND"),
+            MessageLookupByLibrary.simpleMessage("Not Found"),
         "not_internet_connection_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                "ResponseMessage.NO_INTERNET_CONNECTION"),
+            MessageLookupByLibrary.simpleMessage("No Internet Connection"),
         "recieve_timeout_response_message":
-            MessageLookupByLibrary.simpleMessage(
-                "ResponseMessage.RECIEVE_TIMEOUT"),
-        "send_timeout_response_message": MessageLookupByLibrary.simpleMessage(
-            "ResponseMessage.SEND_TIMEOUT"),
+            MessageLookupByLibrary.simpleMessage("Recieve Timeout"),
+        "send_timeout_response_message":
+            MessageLookupByLibrary.simpleMessage("Send Timeout"),
         "success_response_message":
-            MessageLookupByLibrary.simpleMessage("success"),
+            MessageLookupByLibrary.simpleMessage("Success"),
         "unauthorized_response_message":
-            MessageLookupByLibrary.simpleMessage("ResponseMessage.UNAUTORISED")
+            MessageLookupByLibrary.simpleMessage("Unauthorized")
       };
 }

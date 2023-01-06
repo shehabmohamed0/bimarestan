@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/apis/error_handler.dart';
 import '../../locator/locator.dart';
-import '../../models/profile.dart';
+import '../../models/profiles/profile.dart';
+import '../../models/profiles/update_profile_request.dart';
 import 'profiles_api.dart';
 
 @lazySingleton
@@ -17,6 +17,15 @@ class ProfilesRepository {
       return Right(profiles);
     } on ErrorHandler catch (e) {
       return Left(e.failure);
+    }
+  }
+
+  Future<Profile> updateProfile(UpdateProfileRequest request) async {
+    try {
+      final profile = await _api.updateProfile(request);
+      return profile;
+    } catch (e) {
+      throw ErrorHandler.handle(e);
     }
   }
 }

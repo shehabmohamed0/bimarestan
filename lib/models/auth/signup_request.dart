@@ -1,5 +1,7 @@
+import 'package:bimarestan/core/enums.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'signup_request.g.dart';
+
 @JsonSerializable(createFactory: false)
 class SignupRequest {
   final String address;
@@ -9,9 +11,9 @@ class SignupRequest {
   final String fullName;
   final String password;
   final String phone;
-  final String userName;
+  final RoleId roleId = RoleId.patient;
 
-  SignupRequest({
+  const SignupRequest({
     required this.address,
     required this.age,
     required this.description,
@@ -19,7 +21,6 @@ class SignupRequest {
     required this.fullName,
     required this.password,
     required this.phone,
-    required this.userName,
   });
 
   Map<String, dynamic> toJson() => _$SignupRequestToJson(this);

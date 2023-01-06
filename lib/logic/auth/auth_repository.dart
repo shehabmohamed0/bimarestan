@@ -6,6 +6,7 @@ import '../../models/auth/login_request.dart';
 import '../../models/auth/login_response.dart';
 import '../../models/auth/signup_request.dart';
 import '../../models/auth/signup_response.dart';
+import '../../models/profiles/profile.dart';
 import 'auth_api.dart';
 
 @lazySingleton
@@ -24,6 +25,15 @@ class AuthRepository {
   Future<LoginResponse> login(LoginRequest request) async {
     try {
       final response = await _api.login(request);
+      return response;
+    } catch (e) {
+      throw ErrorHandler.handle(e);
+    }
+  }
+
+  Future<Profile> decodeToken(String token) async {
+    try {
+      final response = await _api.decodeToken(token);
       return response;
     } catch (e) {
       throw ErrorHandler.handle(e);

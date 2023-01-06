@@ -1,25 +1,30 @@
-import 'package:bimarestan/core/resources/assets_manager.dart';
-import 'package:bimarestan/locator/locator.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import 'startup_view_model.dart';
+import '../../core/resources/assets_manager.dart';
+import '../../core/resources/constants_manager.dart';
+import '../../router/routes.dart';
 
-class StartupView extends StatelessWidget {
+class StartupView extends StatefulWidget {
   const StartupView({super.key});
 
   @override
+  State<StartupView> createState() => _StartupViewState();
+}
+
+class _StartupViewState extends State<StartupView> {
+  @override
+  void initState() {
+    Future.delayed(AppConstants.duration3s).then((value) {
+      Navigator.of(context).pushReplacementNamed(Routes.landing);
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<StartupViewModel>(
-      create: (context) => locator<StartupViewModel>()..handleStartupLogic(),
-      child: Scaffold(
-        body: Consumer<StartupViewModel>(
-          builder: (context, model, child) => Scaffold(
-            body: Center(
-              child: Image.asset(ImageAssets.logo),
-            ),
-          ),
-        ),
+    return Scaffold(
+      body: Center(
+        child: Image.asset(ImageAssets.logo),
       ),
     );
   }

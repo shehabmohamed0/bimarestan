@@ -50,140 +50,140 @@ class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  /// `success`
+  /// `Success`
   String get success_response_message {
     return Intl.message(
-      'success',
+      'Success',
       name: 'success_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `no_content`
+  /// `No Content`
   String get no_content_response_message {
     return Intl.message(
-      'no_content',
+      'No Content',
       name: 'no_content_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.BAD_REQUEST`
+  /// `Bad Request`
   String get bad_request_response_message {
     return Intl.message(
-      'ResponseMessage.BAD_REQUEST',
+      'Bad Request',
       name: 'bad_request_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// ` ResponseMessage.FORBIDDEN`
+  /// ` Forbidden`
   String get forbidden_response_message {
     return Intl.message(
-      ' ResponseMessage.FORBIDDEN',
+      ' Forbidden',
       name: 'forbidden_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.UNAUTORISED`
+  /// `Unauthorized`
   String get unauthorized_response_message {
     return Intl.message(
-      'ResponseMessage.UNAUTORISED',
+      'Unauthorized',
       name: 'unauthorized_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.NOT_FOUND`
+  /// `Not Found`
   String get not_found_response_message {
     return Intl.message(
-      'ResponseMessage.NOT_FOUND',
+      'Not Found',
       name: 'not_found_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// ` ResponseMessage.INTERNAL_SERVER_ERROR`
+  /// `Internal Server Error`
   String get internal_server_error_response_message {
     return Intl.message(
-      ' ResponseMessage.INTERNAL_SERVER_ERROR',
+      'Internal Server Error',
       name: 'internal_server_error_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.CONNECT_TIMEOUT`
+  /// `Connection Timeout`
   String get connect_timeout_response_message {
     return Intl.message(
-      'ResponseMessage.CONNECT_TIMEOUT',
+      'Connection Timeout',
       name: 'connect_timeout_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.CANCEL`
+  /// `Canceled`
   String get cancel_response_message {
     return Intl.message(
-      'ResponseMessage.CANCEL',
+      'Canceled',
       name: 'cancel_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.RECIEVE_TIMEOUT`
+  /// `Recieve Timeout`
   String get recieve_timeout_response_message {
     return Intl.message(
-      'ResponseMessage.RECIEVE_TIMEOUT',
+      'Recieve Timeout',
       name: 'recieve_timeout_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.SEND_TIMEOUT`
+  /// `Send Timeout`
   String get send_timeout_response_message {
     return Intl.message(
-      'ResponseMessage.SEND_TIMEOUT',
+      'Send Timeout',
       name: 'send_timeout_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.CACHE_ERROR`
+  /// `Cache Error`
   String get cache_error_response_message {
     return Intl.message(
-      'ResponseMessage.CACHE_ERROR',
+      'Cache Error',
       name: 'cache_error_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.NO_INTERNET_CONNECTION`
+  /// `No Internet Connection`
   String get not_internet_connection_response_message {
     return Intl.message(
-      'ResponseMessage.NO_INTERNET_CONNECTION',
+      'No Internet Connection',
       name: 'not_internet_connection_response_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `ResponseMessage.DEFAULT`
+  /// `Something went wrong`
   String get default_response_message {
     return Intl.message(
-      'ResponseMessage.DEFAULT',
+      'Something went wrong',
       name: 'default_response_message',
       desc: '',
       args: [],

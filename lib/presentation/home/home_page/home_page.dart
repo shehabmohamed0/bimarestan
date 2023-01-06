@@ -57,25 +57,32 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               children: [
-                HomeCard(
-                  title: 'Visit Doctor',
-                  description:
-                      'Book your doctor and enjoy excellent medical service',
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Routes.departments);
-                  },
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.h),
+                  child: HomeCard(
+                    title: 'Visit Doctor',
+                    description:
+                        'Book your doctor and enjoy excellent medical service',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(Routes.departments);
+                    },
+                  ),
                 ),
-                SizedBox(height: 36.h),
-                HomeCard(
-                  title: 'Surgery booking',
-                  description: 'Book your operation and enjoy special offers',
-                  onPressed: () {},
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.h),
+                  child: HomeCard(
+                    title: 'Surgery booking',
+                    description: 'Book your operation and enjoy special offers',
+                    onPressed: () {},
+                  ),
                 ),
-                SizedBox(height: 36.h),
-                HomeCard(
-                  title: 'Radiological analyzes',
-                  description: 'Send your tests to your doctor from home',
-                  onPressed: () {},
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.h),
+                  child: HomeCard(
+                    title: 'Radiological analyzes',
+                    description: 'Send your tests to your doctor from home',
+                    onPressed: () {},
+                  ),
                 ),
               ],
             ),

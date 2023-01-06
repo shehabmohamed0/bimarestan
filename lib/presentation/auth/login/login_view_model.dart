@@ -5,14 +5,14 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../core/apis/error_handler.dart';
 import '../../../core/services/snack_bar_service.dart';
 import '../../../core/utils/dialogs.dart';
+import '../../../logic/auth/auth_service.dart';
 import '../../../locator/locator.dart';
-import '../../../logic/auth/auth_repository.dart';
 import '../../../models/auth/login_request.dart';
 import '../../../router/routes.dart';
 
 @injectable
 class LoginViewModel extends ChangeNotifier {
-  final AuthRepository _authRepository = locator<AuthRepository>();
+  final AuthService _authService = locator<AuthService>();
 
   final NavigationService _navigationService = locator<NavigationService>();
   final SnackBarService _snackBarService = locator<SnackBarService>();
@@ -21,19 +21,30 @@ class LoginViewModel extends ChangeNotifier {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
+  @override
+  @override
+  void dispose() {
+    email.dispose();
+    password.dispose();
+    super.dispose();
+  }
+
   Future<void> submit() async {
     if (formKey.currentState!.validate()) {
       try {
         showLoadingDialog();
-        final response = await _authRepository.login(LoginRequest(
+        await _authService.login(LoginRequest(
           email: email.text,
           password: password.text,
         ));
+
         dismissLoadingDialog();
-        _navigationService.navigateTo(Routes.home);
-      } on ErrorHandler catch (e) {
+      } on ErrorHandler {
         dismissLoadingDialog();
-        _snackBarService.showErrorSnackBar(e.failure.message);
+        _snackBarService.showErrorSnackBar(
+          'Invalid email or password',
+        );
+        // rethrow;
       }
     }
   }

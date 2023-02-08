@@ -15,11 +15,12 @@ Map<String, dynamic> _$SignupRequestToJson(SignupRequest instance) =>
       'fullName': instance.fullName,
       'password': instance.password,
       'phone': instance.phone,
+      'fireBaseToken': instance.firebaseMessagingToken,
       'roleId': _$RoleIdEnumMap[instance.roleId]!,
     };
 
 const _$RoleIdEnumMap = {
-  RoleId.patient: 1,
-  RoleId.doctor: 2,
+  RoleId.doctor: 1,
+  RoleId.patient: 2,
   RoleId.nurse: 3,
 };

@@ -1,7 +1,6 @@
 import 'package:injectable/injectable.dart';
 
 import '../../core/apis/api_utils.dart';
-import '../../core/mixin/api_mixin.dart';
 import '../../models/auth/login_request.dart';
 import '../../models/auth/login_response.dart';
 import '../../models/auth/signup_request.dart';
@@ -32,7 +31,9 @@ class AuthAPI {
     final response = await DioFactory.dio.get<Map<String, dynamic>>(
       '/bimarestan/authentication/current-user',
     );
-    final model = Profile.fromJson(response.data!);
+    final model = Profile.fromJson(
+      response.data!..['token'] = token,
+    );
     return model;
   }
 }

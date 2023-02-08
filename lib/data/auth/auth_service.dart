@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:bimarestan/logic/auth/auth_repository.dart';
+import 'package:bimarestan/data/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -34,7 +34,6 @@ class AuthService {
     final json = _sharedPreferences.getString(_RX_PROFILE_KEY);
     if (json == null) {
       _controller.add(null);
-      log('message');
       return;
     }
     final profile = Profile.fromJson(jsonDecode(json));
@@ -42,6 +41,7 @@ class AuthService {
       final newProfile = await _authRepository.decodeToken(profile.token);
       _controller.add(newProfile);
     } catch (e) {
+      rethrow;
       _controller.add(null);
     }
   }

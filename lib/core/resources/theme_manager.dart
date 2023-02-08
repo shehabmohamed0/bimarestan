@@ -27,10 +27,10 @@ ThemeData getApplicationTheme() {
         onSecondary: Colors.white,
         error: Colors.red,
         onError: Colors.white,
-        background: Color(0xffF9F9F9),
-        onBackground: Colors.black45,
+        background: Colors.white,
+        onBackground: ColorManager.onBackground,
         surface: Colors.white,
-        onSurface: Colors.black45,
+        onSurface: ColorManager.onSerface,
       ) // textTheme: Typography.englishLike2021.apply(fontSizeFactor: 1.sp),
       );
 }

@@ -18,6 +18,7 @@ class AuthRepository {
       final response = await _api.signup(request);
       return response;
     } catch (e) {
+      rethrow;
       throw ErrorHandler.handle(e);
     }
   }
@@ -36,6 +37,7 @@ class AuthRepository {
       final response = await _api.decodeToken(token);
       return response;
     } catch (e) {
+      rethrow;
       throw ErrorHandler.handle(e);
     }
   }

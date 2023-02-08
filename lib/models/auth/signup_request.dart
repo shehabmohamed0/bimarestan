@@ -11,6 +11,8 @@ class SignupRequest {
   final String fullName;
   final String password;
   final String phone;
+  @JsonKey(name: 'fireBaseToken')
+  final String firebaseMessagingToken;
   final RoleId roleId = RoleId.patient;
 
   const SignupRequest({
@@ -21,6 +23,7 @@ class SignupRequest {
     required this.fullName,
     required this.password,
     required this.phone,
+    required this.firebaseMessagingToken,
   });
 
   Map<String, dynamic> toJson() => _$SignupRequestToJson(this);

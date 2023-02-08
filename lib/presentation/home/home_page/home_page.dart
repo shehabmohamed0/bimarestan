@@ -64,7 +64,10 @@ class HomePage extends StatelessWidget {
                     description:
                         'Book your doctor and enjoy excellent medical service',
                     onPressed: () {
-                      Navigator.of(context).pushNamed(Routes.departments);
+                      Navigator.of(context).pushNamed(
+                        Routes.specialities,
+                        arguments: Routes.specialitiesDoctors,
+                      );
                     },
                   ),
                 ),
@@ -73,7 +76,12 @@ class HomePage extends StatelessWidget {
                   child: HomeCard(
                     title: 'Surgery booking',
                     description: 'Book your operation and enjoy special offers',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(
+                        Routes.specialities,
+                        arguments: Routes.specialitiesSurgery,
+                      );
+                    },
                   ),
                 ),
                 Padding(
@@ -81,7 +89,12 @@ class HomePage extends StatelessWidget {
                   child: HomeCard(
                     title: 'Radiological analyzes',
                     description: 'Send your tests to your doctor from home',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(
+                        Routes.specialities,
+                        arguments: Routes.specialitiesRadiology,
+                      );
+                    },
                   ),
                 ),
               ],

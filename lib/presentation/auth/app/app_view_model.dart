@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../logic/auth/auth_service.dart';
+import '../../../data/auth/auth_service.dart';
 import '../../../models/profiles/profile.dart';
 
 @injectable

@@ -2,9 +2,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum RoleId {
   @JsonValue(1)
-  patient,
-  @JsonValue(2)
   doctor,
+  @JsonValue(2)
+  patient,
   @JsonValue(3)
   nurse;
 

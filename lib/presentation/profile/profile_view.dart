@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import '../../locator/locator.dart';
 import '../../shared/app_elevated_button.dart';
 import '../../shared/password_text_form_field.dart';
+import '../auth/signup/signup_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -121,16 +122,23 @@ class ProfileView extends StatelessWidget {
                                   AutovalidateMode.onUserInteraction,
                             ),
                             SizedBox(height: 4.h),
-                            TextFormField(
-                              controller: model.address,
-                              decoration: const InputDecoration(
-                                labelText: 'Address',
-                                alignLabelWithHint: true,
-                              ),
-                              validator: FormBuilderValidators.required(),
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                            ),
+                           DropdownButtonFormField<Governate>(
+                                  value: model.selectedGovernate,
+                                  items: governates
+                                      .map((e) => DropdownMenuItem(
+                                            value: e,
+                                            child: Text(e.name),
+                                          ))
+                                      .toList(),
+                                  decoration: const InputDecoration(
+                                    labelText: 'Address',
+                                    alignLabelWithHint: true,
+                                  ),
+                                  onChanged: model.governateChanged,
+                                  validator: FormBuilderValidators.required(),
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                ),
                             SizedBox(height: 4.h),
                             TextFormField(
                               controller: model.description,

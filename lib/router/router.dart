@@ -1,4 +1,3 @@
-import 'package:bimarestan/presentation/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -6,10 +5,11 @@ import '../locator/locator.dart';
 import '../presentation/auth/app/landing_view.dart';
 import '../presentation/auth/login/login_view_model.dart';
 import '../presentation/auth/signup/signup_view.dart';
-import '../presentation/home/home_landing_view.dart';
-import '../presentation/home/home_landing_view_model.dart';
-import '../presentation/home/home_page/department_doctors_view.dart';
-import '../presentation/reservation/search_speciality_view.dart';
+import '../presentation/doctors/radiological_analyzes_view.dart';
+import '../presentation/doctors/visit_doctors_view.dart';
+import '../presentation/doctors/surgery_booking_view.dart';
+import '../presentation/profile/profile_view.dart';
+import '../presentation/specialities/search_speciality_view.dart';
 import '../presentation/startup/startup_view.dart';
 import 'routes.dart';
 
@@ -21,7 +21,6 @@ class AppRouter {
           settings: settings,
           builder: (context) => const StartupView(),
         );
-
       case Routes.signup:
         return _getPageRoute(
           settings: settings,
@@ -30,7 +29,6 @@ class AppRouter {
             child: const SignupView(),
           ),
         );
-
       case Routes.landing:
         return _getPageRoute(
           settings: settings,
@@ -41,15 +39,25 @@ class AppRouter {
           settings: settings,
           builder: (context) => const ProfileView(),
         );
-      case Routes.departments:
+      case Routes.specialities:
         return _getPageRoute(
           settings: settings,
           builder: (context) => const SearchSpecialtyView(),
         );
-      case Routes.departmentDoctors:
+      case Routes.specialitiesDoctors:
         return _getPageRoute(
           settings: settings,
-          builder: (context) => const DepartmentDoctorsView(),
+          builder: (context) => const VisitDoctorsView(),
+        );
+      case Routes.specialitiesSurgery:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const SurgeryBookingView(),
+        );
+      case Routes.specialitiesRadiology:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const RadiologicalAnalyzesView(),
         );
       default:
         return MaterialPageRoute(

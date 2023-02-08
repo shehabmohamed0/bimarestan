@@ -3,7 +3,9 @@ class Routes {
   static const startup = '/';
   static const signup = '/signup';
   static const landing = '/landing';
-  static const departments = '/departments';
+  static const specialities = '/specialities';
   static const profile = '/profile';
-  static const departmentDoctors = '/departmentDoctors';
+  static const specialitiesDoctors = '/specialitiesDoctors';
+  static const specialitiesSurgery = '/specialitiesSurgery';
+  static const specialitiesRadiology = '/specialitiesRadiology';
 }

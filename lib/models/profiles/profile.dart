@@ -16,7 +16,8 @@ class Profile {
   final String? jobTitle;
   final int age;
   final RoleId roleId;
-  final String roleName;
+  final String? roleName;
+  @JsonKey(defaultValue: 'token')
   final String token;
   final String? catergoryId;
   final String? catergoryName;

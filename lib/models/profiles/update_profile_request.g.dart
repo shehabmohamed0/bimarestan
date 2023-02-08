@@ -21,7 +21,7 @@ Map<String, dynamic> _$UpdateProfileRequestToJson(
     };
 
 const _$RoleIdEnumMap = {
-  RoleId.patient: 1,
-  RoleId.doctor: 2,
+  RoleId.doctor: 1,
+  RoleId.patient: 2,
   RoleId.nurse: 3,
 };

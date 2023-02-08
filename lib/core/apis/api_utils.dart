@@ -42,6 +42,8 @@ class HttpBuilder {
           token != null
               ? options.headers['Authorization'] = 'Bearer $token'
               : null;
+          options.headers['content-Type'] = Headers.jsonContentType;
+
           // options.headers['Content-Language'] = Localizations.localeOf(
           //   StackedService.navigatorKey!.currentContext!,
           // ).languageCode;

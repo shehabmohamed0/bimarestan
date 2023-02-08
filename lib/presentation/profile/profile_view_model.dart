@@ -1,18 +1,17 @@
-import 'dart:developer';
-
-import 'package:bimarestan/core/services/snack_bar_service.dart';
-import 'package:bimarestan/logic/auth/auth_service.dart';
-import 'package:bimarestan/models/profiles/update_profile_request.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../core/apis/error_handler.dart';
+import '../../core/services/snack_bar_service.dart';
 import '../../core/utils/dialogs.dart';
+import '../../data/auth/auth_service.dart';
+import '../../data/profiles/profiles_repository.dart';
 import '../../locator/locator.dart';
-import '../../logic/profiles/profiles_repository.dart';
 import '../../models/profiles/profile.dart';
+import '../../models/profiles/update_profile_request.dart';
+import '../auth/signup/signup_view.dart';
 
 @injectable
 class ProfileViewModel extends ChangeNotifier {
@@ -27,19 +26,20 @@ class ProfileViewModel extends ChangeNotifier {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController phone = TextEditingController();
-  final TextEditingController address = TextEditingController();
+  // final TextEditingController address = TextEditingController();
   final TextEditingController age = TextEditingController();
   final TextEditingController description = TextEditingController();
 
   PhoneNumber? phoneNumber;
   bool validPhoneNumber = false;
   late Profile profile;
+  Governate? selectedGovernate;
 
   Future<void> init(Profile profile) async {
     this.profile = profile;
     name.text = profile.fullName;
     email.text = profile.email;
-    address.text = profile.address;
+    selectedGovernate = Governate(id: 0, name: profile.address);
     age.text = profile.age.toString();
     description.text = profile.description;
     phoneNumber = await _preparePhone(profile);
@@ -52,7 +52,7 @@ class ProfileViewModel extends ChangeNotifier {
     email.dispose();
     password.dispose();
     phone.dispose();
-    address.dispose();
+    // address.dispose();
     age.dispose();
     description.dispose();
 
@@ -60,7 +60,6 @@ class ProfileViewModel extends ChangeNotifier {
   }
 
   Future<PhoneNumber> _preparePhone(Profile profile) async {
-    log(profile.phone);
     try {
       return await PhoneNumber.getRegionInfoFromPhoneNumber(
         profile.phone,
@@ -96,7 +95,7 @@ class ProfileViewModel extends ChangeNotifier {
             password: password.text,
             phone: phoneNumber!.phoneNumber!,
             age: int.parse(age.text),
-            address: address.text,
+            address: selectedGovernate!.name,
             description: description.text,
           ),
         );
@@ -108,6 +107,13 @@ class ProfileViewModel extends ChangeNotifier {
         dismissLoadingDialog();
         _snackBarService.showErrorSnackBar(e.failure.message);
       }
+    }
+  }
+
+  void governateChanged(Governate? value) {
+    if (value != null) {
+      selectedGovernate = value;
+      notifyListeners();
     }
   }
 }

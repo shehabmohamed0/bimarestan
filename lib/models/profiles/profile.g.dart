@@ -17,8 +17,8 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       jobTitle: json['jobTitle'] as String?,
       age: json['age'] as int,
       roleId: $enumDecode(_$RoleIdEnumMap, json['roleId']),
-      roleName: json['roleName'] as String,
-      token: json['token'] as String,
+      roleName: json['roleName'] as String?,
+      token: json['token'] as String? ?? 'token',
       catergoryId: json['catergoryId'] as String?,
       catergoryName: json['catergoryName'] as String?,
       clinicId: json['clinicId'] as String?,
@@ -45,7 +45,7 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
     };
 
 const _$RoleIdEnumMap = {
-  RoleId.patient: 1,
-  RoleId.doctor: 2,
+  RoleId.doctor: 1,
+  RoleId.patient: 2,
   RoleId.nurse: 3,
 };

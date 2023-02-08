@@ -5,7 +5,7 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../core/apis/error_handler.dart';
 import '../../../core/services/snack_bar_service.dart';
 import '../../../core/utils/dialogs.dart';
-import '../../../logic/auth/auth_service.dart';
+import '../../../data/auth/auth_service.dart';
 import '../../../locator/locator.dart';
 import '../../../models/auth/login_request.dart';
 import '../../../router/routes.dart';

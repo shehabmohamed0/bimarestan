@@ -41,7 +41,6 @@ class AuthService {
       final newProfile = await _authRepository.decodeToken(profile.token);
       _controller.add(newProfile);
     } catch (e) {
-      rethrow;
       _controller.add(null);
     }
   }

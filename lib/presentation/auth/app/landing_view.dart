@@ -1,4 +1,4 @@
-import 'package:bimarestan/presentation/auth/app/app_view_model.dart';
+import 'package:bimarestan/presentation/auth/app/app_model.dart';
 import 'package:bimarestan/presentation/auth/login/login_view.dart';
 import 'package:bimarestan/presentation/home/home_landing_view.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class LandingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<AppViewModel>(
+      body: Consumer<AppModel>(
         builder: (context, model, _) {
           switch (model.status) {
             case AppStatus.authenticated:

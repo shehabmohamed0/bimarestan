@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'color_manager.dart';
-import 'font_manager.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData(
       useMaterial3: true,
       primaryColor: ColorManager.primary,
-      fontFamily: FontConstants.fontFamily,
-      // textTheme: GoogleFonts.seg,
+      // fontFamily: FontConstants.fontFamily,
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         backgroundColor: ColorManager.primary,
         foregroundColor: Colors.white,
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
       ),
       inputDecorationTheme: const InputDecorationTheme(
         isDense: false,

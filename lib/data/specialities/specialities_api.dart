@@ -2,9 +2,10 @@ import 'package:injectable/injectable.dart';
 
 import '../../core/apis/api_utils.dart';
 import '../../models/specialities/speciality.dart';
+
 @lazySingleton
 class SpecialitiesApi {
-  final featurePath = '/bimarestan/category/getAllCategories';
+  final featurePath = '/category/getAllCategories';
 
   Future<List<Speciality>> getSpecialities() async {
     final response = await DioFactory.dio.get<List<dynamic>>(featurePath);

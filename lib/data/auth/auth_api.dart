@@ -11,7 +11,7 @@ import '../../models/profiles/profile.dart';
 class AuthAPI {
   Future<SignupResponse> signup(SignupRequest request) async {
     final response = await DioFactory.dio.post<Map<String, dynamic>>(
-      '/bimarestan/user/addUser',
+      '/user/addUser',
       data: request.toJson(),
     );
     final model = SignupResponse.fromJson(response.data!);
@@ -20,7 +20,7 @@ class AuthAPI {
 
   Future<LoginResponse> login(LoginRequest request) async {
     final response = await DioFactory.dio.post<Map<String, dynamic>>(
-      '/bimarestan/authentication/generate-token',
+      '/authentication/generate-token',
       data: request.toJson(),
     );
     final model = LoginResponse.fromJson(response.data!);
@@ -29,7 +29,7 @@ class AuthAPI {
 
   Future<Profile> decodeToken(String token) async {
     final response = await DioFactory.dio.get<Map<String, dynamic>>(
-      '/bimarestan/authentication/current-user',
+      '/authentication/current-user',
     );
     final model = Profile.fromJson(
       response.data!..['token'] = token,

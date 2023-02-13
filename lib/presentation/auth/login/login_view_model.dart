@@ -44,7 +44,6 @@ class LoginViewModel extends ChangeNotifier {
         _snackBarService.showErrorSnackBar(
           'Invalid email or password',
         );
-        // rethrow;
       }
     }
   }

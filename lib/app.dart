@@ -11,7 +11,7 @@ import 'core/services/notification_service.dart';
 import 'core/services/snack_bar_service.dart';
 import 'localizations/l10n.dart';
 import 'locator/locator.dart';
-import 'presentation/auth/app/app_view_model.dart';
+import 'presentation/auth/app/app_model.dart';
 import 'presentation/notifications/notifications_model.dart';
 import 'presentation/specialities/specialities_view_model.dart';
 import 'router/router.dart';
@@ -69,7 +69,7 @@ class _AppState extends State<App>
           providers: [
             ChangeNotifierProvider(
               lazy: false,
-              create: (context) => locator<AppViewModel>()..init(),
+              create: (context) => locator<AppModel>()..init(),
             ),
             ChangeNotifierProvider(
               create: (context) => locator<SpecialitiesViewModel>()..init(),

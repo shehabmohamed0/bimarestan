@@ -33,7 +33,6 @@ class VisitDoctorsViewModel extends ChangeNotifier {
     } catch (e) {
       viewState = ViewState.error;
       notifyListeners();
-      rethrow;
     }
   }
 }

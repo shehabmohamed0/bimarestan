@@ -1,3 +1,4 @@
+import 'package:bimarestan/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -10,7 +11,7 @@ import '../../shared/app_card.dart';
 import '../../shared/app_elevated_button.dart';
 import '../../shared/loading_widget.dart';
 import '../../shared/no_internet_connection_widget.dart';
-import '../auth/app/app_view_model.dart';
+import '../auth/app/app_model.dart';
 import 'visit_doctors_view_model.dart';
 
 class VisitDoctorsView extends StatelessWidget {
@@ -19,62 +20,69 @@ class VisitDoctorsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final speciality = ModalRoute.of(context)!.settings.arguments as Speciality;
-    final address = context.read<AppViewModel>().profile!.address;
+    final address = context.read<AppModel>().profile!.address;
     return ChangeNotifierProvider<VisitDoctorsViewModel>(
       create: (context) => VisitDoctorsViewModel()..init(address, speciality),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Doctors'),
+          title: const Text('Visit Doctors'),
           leading: const BackButton(
             color: Colors.white,
           ),
         ),
-        body: Consumer<VisitDoctorsViewModel>(builder: (context, model, _) {
-          switch (model.viewState) {
-            case ViewState.initial:
-            case ViewState.loading:
-              return const Center(child: LoadingAnimation());
-            case ViewState.error:
-              return NoInternetConnectionWidget(
-                onTap: () => model.init(address, speciality),
-              );
-            case ViewState.success:
-              if (model.doctors.isEmpty) {
-                return const Center(
-                  child: Text('No doctors found'),
+        body: Consumer<VisitDoctorsViewModel>(
+          builder: (context, model, _) {
+            switch (model.viewState) {
+              case ViewState.initial:
+              case ViewState.loading:
+                return const Center(child: LoadingAnimation());
+              case ViewState.error:
+                return NoInternetConnectionWidget(
+                  onTap: () => model.init(address, speciality),
                 );
-              }
-              return AnimationLimiter(
-                child: ListView.builder(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 42.w,
-                    vertical: 24.h,
-                  ),
-                  itemCount: 4,
-                  itemBuilder: (context, index) =>
-                      AnimationConfiguration.staggeredList(
-                    position: index,
-                    duration: const Duration(milliseconds: 1000),
-                    child: SlideAnimation(
-                      verticalOffset: -50.0,
-                      delay: Duration(milliseconds: 100 * index),
-                      child: FadeInAnimation(
-                        duration: const Duration(milliseconds: 1000),
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 20.h),
-                          child: HealthCard(
-                            profile: model.doctors[index],
-                            onPressed: () {},
-                            buttonText: 'Book Appointment',
+              case ViewState.success:
+                if (model.doctors.isEmpty) {
+                  return const Center(
+                    child: Text('No doctors found'),
+                  );
+                }
+                return AnimationLimiter(
+                  child: ListView.builder(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 42.w,
+                      vertical: 24.h,
+                    ),
+                    itemCount: model.doctors.length,
+                    itemBuilder: (context, index) =>
+                        AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 1000),
+                      child: SlideAnimation(
+                        verticalOffset: -50.0,
+                        delay: Duration(milliseconds: 100 * index),
+                        child: FadeInAnimation(
+                          duration: const Duration(milliseconds: 1000),
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 20.h),
+                            child: HealthCard(
+                              profile: model.doctors[index],
+                              onPressed: () {
+                                Navigator.of(context).pushNamed(
+                                  Routes.clinics,
+                                  arguments: model.doctors[index].id,
+                                );
+                              },
+                              buttonText: 'Book Appointment',
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              );
-          }
-        }),
+                );
+            }
+          },
+        ),
       ),
     );
   }

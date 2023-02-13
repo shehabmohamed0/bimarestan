@@ -8,6 +8,7 @@ import '../../models/profiles/update_profile_request.dart';
 
 @lazySingleton
 class ProfilesAPI {
+  final featurePath = '/user';
   Future<List<Profile>> getProfiles() async {
     try {
       await Future.delayed(AppConstants.duration3s);
@@ -20,7 +21,7 @@ class ProfilesAPI {
   Future<Profile> updateProfile(UpdateProfileRequest request) async {
     try {
       final response = await DioFactory.dio.put<Map<String, dynamic>>(
-        '/bimarestan/user/updateUser',
+        '$featurePath/updateUser',
         data: request.toJson(),
       );
 

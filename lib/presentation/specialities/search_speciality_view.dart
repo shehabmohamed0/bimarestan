@@ -79,7 +79,6 @@ class _SearchSpecialtyViewState extends State<SearchSpecialtyView> {
                         }
                         return GridView(
                           key: model.gridViewKey,
-                          shrinkWrap: true,
                           padding: EdgeInsets.symmetric(
                             horizontal: 16.w,
                             vertical: 16.h,

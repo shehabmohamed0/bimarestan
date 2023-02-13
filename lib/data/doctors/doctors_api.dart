@@ -6,7 +6,7 @@ import '../../models/profiles/profile.dart';
 
 @lazySingleton
 class DoctorsAPI {
-  final String featurePath = '/bimarestan/user/getAllUserByCategory';
+  final String featurePath = '/user/getAllUserByCategory';
 
   Future<List<Profile>> getDoctors(GetDoctorsRequest request) async {
     final response = await DioFactory.dio.get<List<dynamic>>(

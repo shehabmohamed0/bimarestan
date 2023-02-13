@@ -1,5 +1,5 @@
 import 'package:bimarestan/core/resources/color_manager.dart';
-import 'package:bimarestan/presentation/auth/app/app_view_model.dart';
+import 'package:bimarestan/presentation/auth/app/app_model.dart';
 import 'package:bimarestan/presentation/profile/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,8 +18,8 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProfileViewModel>(
-      create: (context) => locator<ProfileViewModel>()
-        ..init(context.read<AppViewModel>().profile!),
+      create: (context) =>
+          locator<ProfileViewModel>()..init(context.read<AppModel>().profile!),
       child: Scaffold(
           body: ColoredBox(
         color: ColorManager.primary,
@@ -122,23 +122,23 @@ class ProfileView extends StatelessWidget {
                                   AutovalidateMode.onUserInteraction,
                             ),
                             SizedBox(height: 4.h),
-                           DropdownButtonFormField<Governate>(
-                                  value: model.selectedGovernate,
-                                  items: governates
-                                      .map((e) => DropdownMenuItem(
-                                            value: e,
-                                            child: Text(e.name),
-                                          ))
-                                      .toList(),
-                                  decoration: const InputDecoration(
-                                    labelText: 'Address',
-                                    alignLabelWithHint: true,
-                                  ),
-                                  onChanged: model.governateChanged,
-                                  validator: FormBuilderValidators.required(),
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                ),
+                            DropdownButtonFormField<Governate>(
+                              value: model.selectedGovernate,
+                              items: governates
+                                  .map((e) => DropdownMenuItem(
+                                        value: e,
+                                        child: Text(e.name),
+                                      ))
+                                  .toList(),
+                              decoration: const InputDecoration(
+                                labelText: 'Address',
+                                alignLabelWithHint: true,
+                              ),
+                              onChanged: model.governateChanged,
+                              validator: FormBuilderValidators.required(),
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                            ),
                             SizedBox(height: 4.h),
                             TextFormField(
                               controller: model.description,

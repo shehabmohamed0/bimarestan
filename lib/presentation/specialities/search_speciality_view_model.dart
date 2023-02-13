@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stream_transform/stream_transform.dart';
@@ -18,7 +16,7 @@ class SearchSpecialityViewModel extends ChangeNotifier {
   late final StreamSubscription _streamSubscription;
 
   List<SpecialityGridWidget> widgets = [];
-  List<Widget> filteredWidgets = [];
+  List<SpecialityGridWidget> filteredWidgets = [];
 
   Future<void> init(
     List<Speciality> specialities,
@@ -30,6 +28,7 @@ class SearchSpecialityViewModel extends ChangeNotifier {
       searchSpeciality(searchText);
     });
     widgets = _buildWidgets(specialities, onTap);
+    _sort(widgets);
     filteredWidgets = widgets;
   }
 
@@ -59,6 +58,12 @@ class SearchSpecialityViewModel extends ChangeNotifier {
             ))
         .toList();
     notifyListeners();
+  }
+
+  void _sort(List<SpecialityGridWidget> widgets) {
+    widgets.sort(
+      (a, b) => a.name.compareTo(b.name),
+    );
   }
 
   @override

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../core/resources/assets_manager.dart';
 import '../../../core/resources/color_manager.dart';
 import '../../../router/routes.dart';
-import '../../auth/app/app_view_model.dart';
+import '../../auth/app/app_model.dart';
 import 'settings_page_view_model.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final profile = context.select(
-      (AppViewModel model) => model.profile!,
+      (AppModel model) => model.profile!,
     );
     return Scaffold(
       appBar: AppBar(

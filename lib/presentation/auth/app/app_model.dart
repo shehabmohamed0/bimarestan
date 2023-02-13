@@ -7,7 +7,7 @@ import '../../../data/auth/auth_service.dart';
 import '../../../models/profiles/profile.dart';
 
 @injectable
-class AppViewModel extends ChangeNotifier {
+class AppModel extends ChangeNotifier {
   final AuthService _authService;
 
   late final StreamSubscription<Profile?> _subscription;
@@ -15,7 +15,7 @@ class AppViewModel extends ChangeNotifier {
 
   Profile? _profile;
 
-  AppViewModel(this._authService);
+  AppModel(this._authService);
   Profile? get profile => _profile;
 
   void init() {
@@ -27,7 +27,7 @@ class AppViewModel extends ChangeNotifier {
           ? status = AppStatus.authenticated
           : status = AppStatus.unauthenticated;
       notifyListeners();
-      
+
       if (profile == null) {
         WidgetsBinding.instance.addPostFrameCallback((_) => _profile = profile);
       } else {}

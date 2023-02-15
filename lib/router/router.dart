@@ -1,3 +1,4 @@
+import 'package:bimarestan/presentation/appointment/appointment_view.dart';
 import 'package:bimarestan/presentation/clinics/clinics_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -64,6 +65,11 @@ class AppRouter {
         return _getPageRoute(
           settings: settings,
           builder: (context) => const ClinicsView(),
+        );
+      case Routes.appointment:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const AppointmentView(),
         );
       default:
         return MaterialPageRoute(

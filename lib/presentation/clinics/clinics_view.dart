@@ -1,6 +1,7 @@
 import 'package:bimarestan/core/state_management/view_state.dart';
 import 'package:bimarestan/locator/locator.dart';
 import 'package:bimarestan/presentation/clinics/clinics_view_model.dart';
+import 'package:bimarestan/router/routes.dart';
 import 'package:bimarestan/shared/loading_widget.dart';
 import 'package:bimarestan/shared/no_internet_connection_widget.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,12 @@ class ClinicsView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(model.clinics[index].name),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      Routes.appointment,
+                      arguments: model.clinics[index],
+                    );
+                  },
                 );
               },
             );

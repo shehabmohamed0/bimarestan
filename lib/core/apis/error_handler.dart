@@ -14,6 +14,7 @@ class Failure {
   );
 }
 
+
 class ErrorHandler implements Exception {
   late Failure failure;
 

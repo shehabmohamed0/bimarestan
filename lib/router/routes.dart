@@ -9,4 +9,5 @@ class Routes {
   static const specialitiesSurgery = '/specialitiesSurgery';
   static const specialitiesRadiology = '/specialitiesRadiology';
   static const clinics = '/clinics';
+  static const appointment = '/appointmentScreen';
 }

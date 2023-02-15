@@ -2,7 +2,6 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:bimarestan/data/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';

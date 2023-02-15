@@ -43,9 +43,9 @@ class HealthPage extends StatelessWidget {
                 ),
               ),
               children: [
-                HealthCard(),
+                const HealthCard(),
                 SizedBox(height: 20.h),
-                HealthCard(),
+                const HealthCard(),
               ],
             ),
           ),

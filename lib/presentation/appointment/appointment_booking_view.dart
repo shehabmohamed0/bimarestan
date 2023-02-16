@@ -97,6 +97,13 @@ class _AppointmentBookingViewState extends State<AppointmentBookingView> {
                             .selectedAppointmentDay,
                         calendarFormat: CalendarFormat.week,
                         rowHeight: 40.h,
+                        selectedDayPredicate: (day) {
+                          return isSameDay(
+                              context
+                                  .read<AppointmentViewModel>()
+                                  .selectedAppointmentDay,
+                              day);
+                        },
                         onDaySelected: (selectedDay, focusedDay) => context
                             .read<AppointmentViewModel>()
                             .setSelectedAppointmentDay(selectedDay),
@@ -128,7 +135,9 @@ class _AppointmentBookingViewState extends State<AppointmentBookingView> {
                 ),
                 AppElevatedButton(
                   height: 60.h,
-                  onPressed: () {},
+                  onPressed: () {
+                    //TODO: book appointment
+                  },
                   child: Text(
                     'Book Appointment',
                     style: TextStyle(fontSize: 20.sp),

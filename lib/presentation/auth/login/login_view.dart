@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../../../core/resources/assets_manager.dart';
 import '../../../core/resources/color_manager.dart';
-import '../../../core/utils/extensions.dart';
 import '../../../locator/locator.dart';
 import '../../../router/routes.dart';
 import '../../../shared/app_elevated_button.dart';

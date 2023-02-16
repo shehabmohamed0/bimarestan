@@ -1,3 +1,4 @@
+import 'package:bimarestan/presentation/appointment/appointment_booking_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -78,7 +79,8 @@ class _AppState extends State<App>
           child: MaterialApp(
             navigatorKey: StackedService.navigatorKey,
             scaffoldMessengerKey: locator<SnackBarService>().key,
-            onGenerateRoute: AppRouter.generateRoute,
+            // onGenerateRoute: AppRouter.generateRoute,
+            home: AppointmentBookingView(),
             builder: EasyLoading.init(),
             theme: getApplicationTheme(),
             localizationsDelegates: const [

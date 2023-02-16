@@ -14,72 +14,45 @@ class HealthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<HealthViewModel>(
-      create: (context) => locator()..getAllAppointmentsByPatientId(0),
-      builder: (context, child) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Health Care'),
-          actions: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  ImageAssets.logo_white,
-                  height: 38,
-                ),
-              ],
-            )
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Health Care'),
+        actions: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                ImageAssets.logo_white,
+                height: 38,
+              ),
+            ],
+          )
+        ],
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 42.w,
+          vertical: 24.h,
         ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 42.w,
-            vertical: 24.h,
+        child: AnimationLimiter(
+          child: Column(
+            children: AnimationConfiguration.toStaggeredList(
+              duration: const Duration(milliseconds: 1000),
+              // delay: Duration(milliseconds: 100),
+              childAnimationBuilder: (widget) => SlideAnimation(
+                horizontalOffset: 50,
+                child: FadeInAnimation(
+                  duration: const Duration(milliseconds: 1000),
+                  child: widget,
+                ),
+              ),
+              children: [
+                HealthCard(),
+                SizedBox(height: 20.h),
+                HealthCard(),
+              ],
+            ),
           ),
-          child: Builder(builder: (context) {
-            final appointmentState = context.watch<HealthViewModel>();
-            switch (appointmentState.appointmentState) {
-              case ViewState.initial:
-
-              case ViewState.loading:
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              case ViewState.error:
-                return const Center(
-                  child: Text('Error'),
-                );
-              case ViewState.success:
-                return AnimationLimiter(
-                  child: Column(
-                    children: AnimationConfiguration.toStaggeredList(
-                      duration: const Duration(milliseconds: 1000),
-                      // delay: Duration(milliseconds: 100),
-                      childAnimationBuilder: (widget) => SlideAnimation(
-                        horizontalOffset: 50,
-                        child: FadeInAnimation(
-                          duration: const Duration(milliseconds: 1000),
-                          child: widget,
-                        ),
-                      ),
-                    
-                      children: context
-                          .read<HealthViewModel>()
-                          .appointments
-                          .map(
-                            (e) => Column(
-                              children: [
-                                HealthCard(),
-                                SizedBox(height: 20.h),
-                              ],
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  ),
-                );
-            }
-          }),
         ),
       ),
     );

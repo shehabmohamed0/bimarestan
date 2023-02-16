@@ -16,7 +16,6 @@ class ClinicRepository {
       final clinics = await _api.getClinics(request);
       return clinics;
     } catch (e) {
-      rethrow;
       throw ErrorHandler.handle(e);
     }
   }

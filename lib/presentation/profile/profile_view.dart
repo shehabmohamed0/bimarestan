@@ -1,16 +1,16 @@
-import 'package:bimarestan/core/resources/color_manager.dart';
-import 'package:bimarestan/presentation/auth/app/app_model.dart';
-import 'package:bimarestan/presentation/profile/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/resources/color_manager.dart';
 import '../../locator/locator.dart';
 import '../../shared/app_elevated_button.dart';
-import '../../shared/password_text_form_field.dart';
+import '../auth/app/app_model.dart';
+// import '../../shared/password_text_form_field.dart';
 import '../auth/signup/signup_view.dart';
+import 'profile_view_model.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});

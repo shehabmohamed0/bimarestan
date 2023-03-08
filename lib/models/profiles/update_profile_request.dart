@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../core/enums.dart';
+
 part 'update_profile_request.g.dart';
 
 @JsonSerializable(createFactory: false)

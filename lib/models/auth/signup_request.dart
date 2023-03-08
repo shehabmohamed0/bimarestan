@@ -1,5 +1,7 @@
-import 'package:bimarestan/core/enums.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../core/enums.dart';
+
 part 'signup_request.g.dart';
 
 @JsonSerializable(createFactory: false)

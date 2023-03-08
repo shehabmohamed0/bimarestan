@@ -1,11 +1,11 @@
-import 'package:bimarestan/core/state_management/view_state.dart';
-import 'package:bimarestan/data/clinics/clinic_repository.dart';
-import 'package:bimarestan/models/clinics/clinic.dart';
-import 'package:bimarestan/models/clinics/get_clinics_request.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../core/state_management/view_state.dart';
+import '../../data/clinics/clinic_repository.dart';
 import '../../locator/locator.dart';
+import '../../models/clinics/clinic.dart';
+import '../../models/clinics/get_clinics_request.dart';
 
 @injectable
 class ClinicsViewModel extends ChangeNotifier {

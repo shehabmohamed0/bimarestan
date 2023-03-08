@@ -89,15 +89,15 @@ class SettingsPage extends StatelessWidget {
                       size: 16,
                     ),
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.location_on_rounded),
-                    title: const Text('Location'),
-                    onTap: () {},
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 16,
-                    ),
-                  ),
+                  // ListTile(
+                  //   leading: const Icon(Icons.location_on_rounded),
+                  //   title: const Text('Location'),
+                  //   onTap: () {},
+                  //   trailing: const Icon(
+                  //     Icons.arrow_forward_ios,
+                  //     size: 16,
+                  //   ),
+                  // ),
 
                   // notifications list tile with ios switch
                   Selector<SettingsPageViewModel, bool>(
@@ -108,7 +108,7 @@ class SettingsPage extends StatelessWidget {
                       onTap: () {},
                       trailing: // cupertino switch
                           CupertinoSwitch(
-                        value: active,
+                        value: true,
                         onChanged:
                             context.read<SettingsPageViewModel>().toggleSwitch,
                         activeColor: ColorManager.primary,

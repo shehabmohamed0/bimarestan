@@ -13,18 +13,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              color: Colors.white,
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
         actions: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +26,6 @@ class HomePage extends StatelessWidget {
         ],
         title: const Text('Home'),
       ),
-      drawer: const Drawer(),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(
           horizontal: 42.w,
@@ -63,6 +50,7 @@ class HomePage extends StatelessWidget {
                     title: 'Visit Doctor',
                     description:
                         'Book your doctor and enjoy excellent medical service',
+                    icon: Icons.person_2_rounded,
                     onPressed: () {
                       Navigator.of(context).pushNamed(
                         Routes.specialities,
@@ -74,27 +62,25 @@ class HomePage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 20.h),
                   child: HomeCard(
-                    title: 'Surgery booking',
-                    description: 'Book your operation and enjoy special offers',
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(
-                        Routes.specialities,
-                        arguments: Routes.specialitiesSurgery,
-                      );
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.h),
-                  child: HomeCard(
                     title: 'Radiological analyzes',
                     description: 'Send your tests to your doctor from home',
+                    // radiology icon flutter
+                    icon: Icons.radio_button_checked_rounded,
                     onPressed: () {
                       Navigator.of(context).pushNamed(
                         Routes.specialities,
                         arguments: Routes.specialitiesRadiology,
                       );
                     },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.h),
+                  child: const HomeCard(
+                    title: 'Surgery booking',
+                    description: 'Book your operation and enjoy special offers',
+                    // surgery icon
+                    icon: Icons.medical_services_rounded,
                   ),
                 ),
               ],

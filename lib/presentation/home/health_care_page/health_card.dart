@@ -1,12 +1,18 @@
+import 'package:bimarestan/models/appointments/appointment.dart';
+import 'package:bimarestan/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 import '../../../shared/app_card.dart';
 import '../../../shared/app_elevated_button.dart';
 
 class HealthCard extends StatelessWidget {
-  const HealthCard({super.key});
-
+  const HealthCard({
+    super.key,
+    required this.appointment,
+  });
+  final Appointment appointment;
   @override
   Widget build(BuildContext context) {
     return AppCard(
@@ -32,19 +38,21 @@ class HealthCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Shehab Aladawy',
+                    appointment.clinicName ?? 'clinic name',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   Text(
-                    'Neurosurgeon',
+                    appointment.clinicAddress ?? 'clinic address',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   Text(
-                    'has a 15 years of experience',
+                    '${DateFormat('yyyy-MM-dd').format(appointment.appointmentDate)} ${DateFormat('H:mm a').format(
+                      convertdoubleToTime(appointment.time),
+                    )}',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 16.sp),
@@ -53,20 +61,26 @@ class HealthCard extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 16.h),
-          const Text(
-            '+ user old reservation informations Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: Colors.black54),
-          ),
           SizedBox(height: 8.h),
           AppElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                Routes.appointment,
+                arguments: appointment.clinicId,
+              );
+            },
             child: const Text('Book again'),
           )
         ],
       ),
     );
   }
+}
+
+DateTime convertdoubleToTime(double time) {
+  final fraction = time % 1;
+  final hour = time.toInt();
+  final minute = (fraction * 100).toInt();
+
+  return DateTime(0, 0, 0, hour, minute);
 }

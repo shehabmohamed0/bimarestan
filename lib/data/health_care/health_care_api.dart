@@ -1,14 +1,14 @@
-import 'package:bimarestan/models/clinics/clinic.dart';
-import 'package:bimarestan/models/health_care/appointment.dart';
+import '../../models/appointments/appointment.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/apis/api_utils.dart';
 
 @lazySingleton
-class HealthCareApi {
+class HealthCareAPI {
   Future<List<Appointment>> fetchAllAppointmentsByPatientId(
-      int patientId) async {
-    final response = await DioFactory.dio.get<Map<String, dynamic>>(
+    int patientId,
+  ) async {
+    final response = await DioFactory.dio.get<List>(
       '/appointment/getAllAppointmentsByPatientId$patientId',
     );
 

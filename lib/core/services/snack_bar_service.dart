@@ -6,6 +6,22 @@ class SnackBarService {
   final GlobalKey<ScaffoldMessengerState> key =
       GlobalKey<ScaffoldMessengerState>();
 
+  showSnackBar(String text) {
+    key.currentState!
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(
+            text,
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      );
+  }
+
+
   showErrorSnackBar(String errorMessage) {
     key.currentState!
       ..hideCurrentSnackBar()

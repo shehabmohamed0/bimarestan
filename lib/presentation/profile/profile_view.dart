@@ -48,7 +48,7 @@ class ProfileView extends StatelessWidget {
                       ),
                       SizedBox(height: 16.h),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 48.w),
+                        padding: EdgeInsets.symmetric(horizontal: 42.w),
                         child: Column(
                           children: [
                             TextFormField(

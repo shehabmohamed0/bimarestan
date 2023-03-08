@@ -1,26 +1,25 @@
-
 class Appointment {
   final DateTime added;
   final DateTime appointmentDate;
   final bool cancelled;
-  final String clinicAddress;
+  final String? clinicAddress;
   final int clinicId;
-  final String clinicName;
-  final String clinicPhone;
+  final String? clinicName;
+  final String? clinicPhone;
   final bool finish;
   final int id;
   final int numPatient;
-  final String nurseFullName;
-  final int nurseId;
-  final String patientFullName;
+  final String? nurseFullName;
+  final int? nurseId;
+  final String? patientFullName;
   final int patientId;
-  final String patientPhone;
+  final String? patientPhone;
   final bool pay;
-  final String paymentDescription;
+  final String? paymentDescription;
   final int paymentId;
-  final String paymentName;
-  final int time;
-  DateTime updated;
+  final String? paymentName;
+  final double time;
+  final DateTime updated;
   Appointment({
     required this.added,
     required this.appointmentDate,

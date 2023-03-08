@@ -23,6 +23,7 @@ class AppModel extends ChangeNotifier {
       if (profile != null) {
         _profile = profile;
       }
+
       profile != null
           ? status = AppStatus.authenticated
           : status = AppStatus.unauthenticated;

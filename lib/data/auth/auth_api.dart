@@ -1,6 +1,10 @@
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/apis/api_utils.dart';
+import '../../core/resources/strings_manager.dart';
 import '../../models/auth/login_request.dart';
 import '../../models/auth/login_response.dart';
 import '../../models/auth/signup_request.dart';
@@ -10,19 +14,28 @@ import '../../models/profiles/profile.dart';
 @lazySingleton
 class AuthAPI {
   Future<SignupResponse> signup(SignupRequest request) async {
-    final response = await DioFactory.dio.post<Map<String, dynamic>>(
-      '/user/addUser',
-      data: request.toJson(),
-    );
-    final model = SignupResponse.fromJson(response.data!);
-    return model;
+    try {
+      final response = await Dio()
+          .post<Map<String, dynamic>>('${AppStrings.apiURL}/user/addUser',
+              data: request.toJson(),
+              options: Options(
+                contentType: Headers.jsonContentType,
+              ));
+      final model = SignupResponse.fromJson(response.data!);
+      return model;
+    } catch (e) {
+      log(e.toString());
+      rethrow;
+    }
   }
 
   Future<LoginResponse> login(LoginRequest request) async {
-    final response = await DioFactory.dio.post<Map<String, dynamic>>(
-      '/authentication/generate-token',
-      data: request.toJson(),
-    );
+    final response = await Dio().post<Map<String, dynamic>>(
+        '${AppStrings.apiURL}/authentication/generate-token',
+        data: request.toJson(),
+        options: Options(
+          contentType: Headers.jsonContentType,
+        ));
     final model = LoginResponse.fromJson(response.data!);
     return model;
   }

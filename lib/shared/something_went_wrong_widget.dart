@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
-class NoInternetConnectionWidget extends StatelessWidget {
-  const NoInternetConnectionWidget({Key? key, required this.onTap})
+class SomethingWentWrongWidget extends StatelessWidget {
+  const SomethingWentWrongWidget({Key? key, required this.onTap})
       : super(key: key);
   final VoidCallback onTap;
   @override
@@ -17,7 +16,14 @@ class NoInternetConnectionWidget extends StatelessWidget {
           SizedBox(height: 4),
           Align(
               alignment: Alignment.center,
-              child: Text('No Internet Connection'))
+              child: Text(
+                'Something went wrong',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.center,
+              ))
         ],
       ),
     );

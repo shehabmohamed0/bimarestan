@@ -1,6 +1,8 @@
+import 'package:bimarestan/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/resources/color_manager.dart';
 import '../../../shared/app_card.dart';
 import '../../../shared/app_elevated_button.dart';
 
@@ -9,21 +11,24 @@ class HomeCard extends StatelessWidget {
     Key? key,
     required this.title,
     required this.description,
-    required this.onPressed,
+    this.onPressed,
+    required this.icon,
   }) : super(key: key);
   final String title;
   final String description;
-  final VoidCallback onPressed;
+  final IconData icon;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return AppCard(
       padding: EdgeInsets.symmetric(
-        horizontal: 24.w,
+        horizontal: 18.w,
         vertical: 10.h,
       ),
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Flexible(
@@ -41,11 +46,20 @@ class HomeCard extends StatelessWidget {
               ),
               SizedBox(width: 16.w),
               Container(
-                width: 86.w,
-                height: 86.w,
-                decoration: const BoxDecoration(
+                width: 42.w,
+                height: 42.w,
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white,
+                  color: onPressed == null
+                      ? context.colorScheme.onSurface.withOpacity(0.12)
+                      : ColorManager.primary,
+                ),
+                child: Icon(
+                  icon,
+                  color: onPressed == null
+                      ? context.colorScheme.onSurface.withOpacity(0.38)
+                      : Colors.white,
+                  size: 24.sp,
                 ),
               ),
             ],
@@ -53,7 +67,9 @@ class HomeCard extends StatelessWidget {
           SizedBox(height: 16.h),
           AppElevatedButton(
             onPressed: onPressed,
-            child: const Text('Book now'),
+            child: onPressed == null
+                ? const Text('Coming soon')
+                : const Text('Book now'),
           )
         ],
       ),

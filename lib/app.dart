@@ -1,4 +1,4 @@
-import 'package:bimarestan/presentation/appointment/appointment_booking_view.dart';
+import 'package:bimarestan/presentation/home/health_care_page/health_care_page_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,9 +12,10 @@ import 'core/services/notification_service.dart';
 import 'core/services/snack_bar_service.dart';
 import 'localizations/l10n.dart';
 import 'locator/locator.dart';
+import 'presentation/appointment/appointment_booking_view.dart';
 import 'presentation/auth/app/app_model.dart';
 import 'presentation/notifications/notifications_model.dart';
-import 'presentation/specialities/specialities_view_model.dart';
+import 'presentation/specialities/specialities_model.dart';
 import 'router/router.dart';
 
 class App extends StatefulWidget {
@@ -72,15 +73,28 @@ class _AppState extends State<App>
               lazy: false,
               create: (context) => locator<AppModel>()..init(),
             ),
+            ChangeNotifierProxyProvider<AppModel, HealthCarePageModel>(
+              create: (context) => locator<HealthCarePageModel>(),
+              update: (context, appModel, healthCarePageModel) {
+                if (appModel.profile == null) {
+                  return healthCarePageModel!;
+                }
+
+                return healthCarePageModel!
+                  ..init(
+                    context.read<AppModel>().profile!.id,
+                  );
+              },
+            ),
             ChangeNotifierProvider(
-              create: (context) => locator<SpecialitiesViewModel>()..init(),
+              create: (context) => locator<SpecialitiesModel>()..init(),
             ),
           ],
           child: MaterialApp(
             navigatorKey: StackedService.navigatorKey,
             scaffoldMessengerKey: locator<SnackBarService>().key,
-            // onGenerateRoute: AppRouter.generateRoute,
-            home: AppointmentBookingView(),
+            onGenerateRoute: AppRouter.generateRoute,
+            // home: AppointmentBookingView(),
             builder: EasyLoading.init(),
             theme: getApplicationTheme(),
             localizationsDelegates: const [

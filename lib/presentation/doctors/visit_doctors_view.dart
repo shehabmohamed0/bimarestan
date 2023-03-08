@@ -1,4 +1,3 @@
-import 'package:bimarestan/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -7,10 +6,11 @@ import 'package:provider/provider.dart';
 import '../../core/state_management/view_state.dart';
 import '../../models/profiles/profile.dart';
 import '../../models/specialities/speciality.dart';
+import '../../router/routes.dart';
 import '../../shared/app_card.dart';
 import '../../shared/app_elevated_button.dart';
 import '../../shared/loading_widget.dart';
-import '../../shared/no_internet_connection_widget.dart';
+import '../../shared/something_went_wrong_widget.dart';
 import '../auth/app/app_model.dart';
 import 'visit_doctors_view_model.dart';
 
@@ -37,7 +37,7 @@ class VisitDoctorsView extends StatelessWidget {
               case ViewState.loading:
                 return const Center(child: LoadingAnimation());
               case ViewState.error:
-                return NoInternetConnectionWidget(
+                return SomethingWentWrongWidget(
                   onTap: () => model.init(address, speciality),
                 );
               case ViewState.success:

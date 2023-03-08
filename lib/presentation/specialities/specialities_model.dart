@@ -1,13 +1,13 @@
-import 'package:bimarestan/data/specialities/specialities_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/state_management/view_state.dart';
+import '../../data/specialities/specialities_repository.dart';
 import '../../locator/locator.dart';
 import '../../models/specialities/speciality.dart';
 
 @injectable
-class SpecialitiesViewModel extends ChangeNotifier {
+class SpecialitiesModel extends ChangeNotifier {
   final SpecialitiesRepository _repository = locator<SpecialitiesRepository>();
 
   ViewState viewState = ViewState.loading;

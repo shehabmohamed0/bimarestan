@@ -8,6 +8,7 @@ class Routes {
   static const specialitiesDoctors = '/specialitiesDoctors';
   static const specialitiesSurgery = '/specialitiesSurgery';
   static const specialitiesRadiology = '/specialitiesRadiology';
+  static const sendRadiologicalAnalyzes = '/sendRadiologicalAnalyzes';
   static const clinics = '/clinics';
   static const appointment = '/appointmentScreen';
 }

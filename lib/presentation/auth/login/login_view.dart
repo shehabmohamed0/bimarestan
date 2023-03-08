@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -40,7 +39,7 @@ class LoginView extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 48.w),
+                          padding: EdgeInsets.symmetric(horizontal: 42.w),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

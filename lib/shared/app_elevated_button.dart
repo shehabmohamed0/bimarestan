@@ -16,7 +16,7 @@ class AppElevatedButton extends StatelessWidget {
 
   /// will be infinity if null
   final double? width;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Widget child;
   @override
   Widget build(BuildContext context) {

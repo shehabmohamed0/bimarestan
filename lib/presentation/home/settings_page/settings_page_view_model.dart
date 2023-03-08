@@ -1,7 +1,7 @@
-import 'package:bimarestan/data/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../data/auth/auth_service.dart';
 import '../../../locator/locator.dart';
 @injectable
 class SettingsPageViewModel extends ChangeNotifier {

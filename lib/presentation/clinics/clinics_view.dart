@@ -1,9 +1,9 @@
-import 'package:bimarestan/core/state_management/view_state.dart';
-import 'package:bimarestan/locator/locator.dart';
-import 'package:bimarestan/presentation/clinics/clinics_view_model.dart';
-import 'package:bimarestan/router/routes.dart';
-import 'package:bimarestan/shared/loading_widget.dart';
-import 'package:bimarestan/shared/no_internet_connection_widget.dart';
+import '../../core/state_management/view_state.dart';
+import '../../locator/locator.dart';
+import 'clinics_view_model.dart';
+import '../../router/routes.dart';
+import '../../shared/loading_widget.dart';
+import '../../shared/something_went_wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +25,7 @@ class ClinicsView extends StatelessWidget {
               return const LoadingWidget();
             }
             if (model.viewState.isError) {
-              return NoInternetConnectionWidget(
+              return SomethingWentWrongWidget(
                 onTap: () => model.init(doctorId),
               );
             }

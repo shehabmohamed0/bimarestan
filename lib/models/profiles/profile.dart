@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:bimarestan/core/enums.dart';
+import '../../core/enums.dart';
 
 part 'profile.g.dart';
 
@@ -21,7 +21,7 @@ class Profile {
   final String token;
   final String? catergoryId;
   final String? catergoryName;
-  final String? clinicId;
+  final int? clinicId;
   final String? clinicName;
   Profile({
     required this.id,

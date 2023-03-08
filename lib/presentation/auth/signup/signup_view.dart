@@ -37,7 +37,7 @@ class SignupView extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 48.w),
+                      padding: EdgeInsets.symmetric(horizontal: 42.w),
                       child: Consumer<SignupViewModel>(
                         builder: (context, model, _) {
                           return Form(

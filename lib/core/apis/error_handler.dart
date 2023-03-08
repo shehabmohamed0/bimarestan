@@ -14,7 +14,6 @@ class Failure {
   );
 }
 
-
 class ErrorHandler implements Exception {
   late Failure failure;
 
@@ -60,7 +59,9 @@ Failure _handleError(DioError error) {
         if (error.response?.statusCode == 500) {
           return DataSource.INTERNAL_SERVER_ERROR.getFailure();
         }
-
+        if (error.response?.statusCode == 404) {
+          return DataSource.NOT_FOUND.getFailure();
+        }
         final parsedResponse = ResponseError.fromJson(error.response!.data);
         return Failure(
           error.response?.statusCode ?? 0,

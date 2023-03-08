@@ -8,9 +8,9 @@ import '../../core/resources/color_manager.dart';
 import '../../core/state_management/view_state.dart';
 import '../../locator/locator.dart';
 import '../../shared/loading_widget.dart';
-import '../../shared/no_internet_connection_widget.dart';
+import '../../shared/something_went_wrong_widget.dart';
 import 'search_speciality_view_model.dart';
-import 'specialities_view_model.dart';
+import 'specialities_model.dart';
 
 part 'widgets/speciality_grid_widget.dart';
 
@@ -25,14 +25,14 @@ class _SearchSpecialtyViewState extends State<SearchSpecialtyView> {
   @override
   Widget build(BuildContext context) {
     final route = ModalRoute.of(context)!.settings.arguments as String;
-    return Consumer<SpecialitiesViewModel>(
+    return Consumer<SpecialitiesModel>(
       builder: (context, model, _) {
         switch (model.viewState) {
           case ViewState.initial:
           case ViewState.loading:
             return const Center(child: LoadingAnimation());
           case ViewState.error:
-            return NoInternetConnectionWidget(onTap: () {});
+            return SomethingWentWrongWidget(onTap: () {});
           case ViewState.success:
             return ChangeNotifierProvider(
               create: (context) => locator<SearchSpecialityViewModel>()

@@ -1,11 +1,12 @@
-import 'package:bimarestan/locator/locator.dart';
-import 'package:bimarestan/presentation/home/health_page/health_page.dart';
-import 'package:bimarestan/presentation/home/home_page/home_page.dart';
-import 'package:bimarestan/presentation/home/settings_page/settings_page.dart';
-import 'package:bimarestan/presentation/home/settings_page/settings_page_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+
+import '../../locator/locator.dart';
+import 'health_care_page/health_care_page.dart';
+import 'home_page/home_page.dart';
+import 'settings_page/settings_page.dart';
+import 'settings_page/settings_page_view_model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -33,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
           controller: controller,
           children: const [
             HomePage(),
-            HealthPage(),
+            HealthCarePage(),
             SettingsPage(),
           ],
         ),

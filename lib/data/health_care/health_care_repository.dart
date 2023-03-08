@@ -1,5 +1,7 @@
-import 'package:bimarestan/core/apis/error_handler.dart';
-import 'package:bimarestan/models/health_care/appointment.dart';
+import '../../locator/locator.dart';
+
+import '../../core/apis/error_handler.dart';
+import '../../models/appointments/appointment.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -7,17 +9,14 @@ import 'health_care_api.dart';
 
 @lazySingleton
 class HealthcareRepository {
-  final HealthCareApi healthcareApi;
-
-  HealthcareRepository({required this.healthcareApi});
+  final HealthCareAPI _api = locator<HealthCareAPI>();
 
   Future<List<Appointment>> getAllAppointmentsByPatientId(int patientId) async {
     try {
-      final response =
-          await healthcareApi.fetchAllAppointmentsByPatientId(patientId);
+      final response = await _api.fetchAllAppointmentsByPatientId(patientId);
       return response;
     } catch (e) {
-     
+      rethrow;
       throw ErrorHandler.handle(e);
     }
   }

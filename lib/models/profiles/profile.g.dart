@@ -21,7 +21,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       token: json['token'] as String? ?? 'token',
       catergoryId: json['catergoryId'] as String?,
       catergoryName: json['catergoryName'] as String?,
-      clinicId: json['clinicId'] as String?,
+      clinicId: json['clinicId'] as int?,
       clinicName: json['clinicName'] as String?,
     );
 

@@ -21,6 +21,7 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppCard(
+      disabled: onPressed == null,
       padding: EdgeInsets.symmetric(
         horizontal: 18.w,
         vertical: 10.h,

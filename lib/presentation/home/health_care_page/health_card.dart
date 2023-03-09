@@ -15,6 +15,10 @@ class HealthCard extends StatelessWidget {
   final Appointment appointment;
   @override
   Widget build(BuildContext context) {
+    final isPast = DateTime.now().isAfter(appointment.appointmentDate.copyWith(
+      hour: convertdoubleToTime(appointment.time).hour,
+      minute: convertdoubleToTime(appointment.time).minute,
+    ));
     return AppCard(
       padding: EdgeInsets.symmetric(
         vertical: 16.h,
@@ -64,12 +68,20 @@ class HealthCard extends StatelessWidget {
           SizedBox(height: 8.h),
           AppElevatedButton(
             onPressed: () {
+              if (isPast) {
+                Navigator.of(context).pushNamed(
+                  Routes.appointment,
+                  arguments: appointment.clinicId,
+                );
+                return;
+              }
               Navigator.of(context).pushNamed(
-                Routes.appointment,
-                arguments: appointment.clinicId,
+                Routes.appointmentDetails,
+                arguments: appointment,
               );
             },
-            child: const Text('Book again'),
+            child:
+                isPast ? const Text('Book again') : const Text('See Details'),
           )
         ],
       ),

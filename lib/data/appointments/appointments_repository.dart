@@ -19,8 +19,7 @@ class AppointmentsRepository {
           await _api.getClinicReservedDayTimes(clinicId: clinicId, date: date);
       return appointments;
     } catch (e) {
-      rethrow;
-      // throw ErrorHandler.handle(e);
+      throw ErrorHandler.handle(e);
     }
   }
 
@@ -33,7 +32,6 @@ class AppointmentsRepository {
     } on AppointmentReservedException {
       rethrow;
     } catch (e) {
-
       throw ErrorHandler.handle(e);
     }
   }

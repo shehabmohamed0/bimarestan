@@ -16,6 +16,7 @@ class HealthCarePageModel extends ChangeNotifier {
     notifyListeners();
     try {
       appointments = await _repository.getAllAppointmentsByPatientId(patientId);
+      sortByDateDesc();
       appointmentState = ViewState.success;
     } catch (e) {
       appointmentState = ViewState.error;
@@ -23,6 +24,11 @@ class HealthCarePageModel extends ChangeNotifier {
       rethrow;
     }
     notifyListeners();
+  }
+
+  List<Appointment> sortByDateDesc() {
+    appointments.sort((a, b) => b.appointmentDate.compareTo(a.appointmentDate));
+    return appointments;
   }
 
   add(Appointment appointment) {

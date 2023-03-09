@@ -11,4 +11,5 @@ class Routes {
   static const sendRadiologicalAnalyzes = '/sendRadiologicalAnalyzes';
   static const clinics = '/clinics';
   static const appointment = '/appointmentScreen';
+  static const appointmentDetails = '/appointmentDetails';
 }

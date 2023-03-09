@@ -1,3 +1,4 @@
+import 'package:bimarestan/presentation/appointment/appointment_details_view.dart';
 import 'package:bimarestan/presentation/doctors/send_radiological_analysis_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -76,6 +77,11 @@ class AppRouter {
         return _getPageRoute(
           settings: settings,
           builder: (context) => const SendRadilogicalAnalysisView(),
+        );
+      case Routes.appointmentDetails:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const AppointmentDetailsView(),
         );
       default:
         return MaterialPageRoute(

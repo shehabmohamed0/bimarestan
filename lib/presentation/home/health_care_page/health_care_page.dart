@@ -43,10 +43,8 @@ class HealthCarePage extends StatelessWidget {
                 context.read<HealthCarePageModel>().appointments;
             switch (model.appointmentState) {
               case ViewState.initial:
-
               case ViewState.loading:
                 return const LoadingWidget();
-
               case ViewState.error:
                 return SomethingWentWrongWidget(onTap: () {
                   context.read<HealthCarePageModel>().init(profile!.id);

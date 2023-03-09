@@ -32,7 +32,9 @@ class _SearchSpecialtyViewState extends State<SearchSpecialtyView> {
           case ViewState.loading:
             return const Center(child: LoadingAnimation());
           case ViewState.error:
-            return SomethingWentWrongWidget(onTap: () {});
+            return SomethingWentWrongWidget(onTap: () {
+              context.read<SpecialitiesModel>().init();
+            });
           case ViewState.success:
             return ChangeNotifierProvider(
               create: (context) => locator<SearchSpecialityViewModel>()

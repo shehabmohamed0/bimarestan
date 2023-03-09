@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:bimarestan/core/services/snack_bar_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -106,7 +109,7 @@ class AppointmentBookingView extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 8.h),
+                            SizedBox(width: 8.h),
                             Selector<AppointmentViewModel, ViewState>(
                               selector: (context, model) =>
                                   model.dayTimesViewState,

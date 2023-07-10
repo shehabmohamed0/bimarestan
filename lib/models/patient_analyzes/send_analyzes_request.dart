@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:json_annotation/json_annotation.dart';
 
 part 'send_analyzes_request.g.dart';
@@ -10,7 +8,7 @@ class SendAnalyzesRequest {
   @JsonKey(name: 'data')
   final List<String> images;
   final String description;
-  SendAnalyzesRequest({
+  const SendAnalyzesRequest({
     required this.userId,
     required this.images,
     required this.description,

@@ -7,7 +7,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.4 <3.0.0'
+  sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
   flutter:
@@ -16,7 +16,6 @@ dependencies:
     sdk: flutter
   
   # STATE MANAGEMENT
-  flutter_bloc: ^8.1.1
   get_it: ^7.2.0
   tuple: ^2.0.1
   provider: ^6.0.4
@@ -24,24 +23,23 @@ dependencies:
   dartz: ^0.10.1
   stream_transform: ^2.1.0
   # Base
-  intl: 0.17.0
+  intl: 0.18.0
   dio: ^4.0.6
-  path: 1.8.2
+  path: 1.8.3
   flutter_svg: ^1.1.6
   stacked_services: ^0.9.8
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.3.0
   flutter_reorderable_grid_view: ^4.0.0
-  firebase_core: ^2.4.1
-  firebase_messaging: ^14.2.1
   flutter_local_notifications: ^13.0.0
   table_calendar: 
 
   # firebase
-  # firebase_core: ^2.2.0
-  # firebase_auth: ^4.1.2
-  # cloud_firestore: ^4.0.5
-
+  firebase_core: ^2.14.0
+  firebase_messaging: ^14.6.4
+  cloud_firestore: ^4.8.2
+  firebase_storage: ^11.2.4
+  
   #UI  
   flutter_easyloading: ^3.0.5
   flutter_spinkit: 5.1.0
@@ -68,10 +66,10 @@ dependencies:
   freezed_annotation: ^2.2.0
   injectable: ^2.0.1
   image_picker: ^0.8.6
-  flutter_screenutil: ^5.6.0
+  flutter_screenutil: ^5.8.4
   device_preview: ^1.1.0
   responsive_framework: ^0.2.0
-  form_builder_validators: ^8.4.0
+  form_builder_validators: ^9.0.0
   intl_phone_number_input: ^0.7.1
 
 dev_dependencies:

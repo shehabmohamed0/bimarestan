@@ -12,4 +12,6 @@ class Routes {
   static const clinics = '/clinics';
   static const appointment = '/appointmentScreen';
   static const appointmentDetails = '/appointmentDetails';
+  static const specialitiesChats = '/specialitiesChats';
+  static const chat = '/chat';
 }

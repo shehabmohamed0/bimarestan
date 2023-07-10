@@ -31,68 +31,72 @@ class SendRadilogicalAnalysisView extends StatelessWidget {
               builder: (context, model, _) {
             return Form(
               key: model.formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Selected Images',
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Wrap(
-                    alignment: WrapAlignment.start,
-                    spacing: 8,
-                    runSpacing: 8,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: [
-                      for (int index = 0; index < model.images.length; index++)
-                        WrapImage(
-                          image: model.images[index],
-                          onRemove: () => model.unSelectImage(index),
-                          onTap: () {},
-                        ),
-                      AddImageButton(
-                        onPressed: model.pickImages,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Selected Images',
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 16.h),
-                  SizedBox(
-                    height: 180.h,
-                    child: TextFormField(
-                      maxLines: null,
-                      keyboardType: TextInputType.multiline,
-                      expands: true,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:
-                            context.colorScheme.primary.withOpacity(0.07),
-                        labelText: 'Description',
-                        alignLabelWithHint: true,
-                        border: const UnderlineInputBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
+                    ),
+                    Wrap(
+                      alignment: WrapAlignment.start,
+                      spacing: 8,
+                      runSpacing: 8,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        for (int index = 0;
+                            index < model.images.length;
+                            index++)
+                          WrapImage(
+                            image: model.images[index],
+                            onRemove: () => model.unSelectImage(index),
+                            onTap: () {},
+                          ),
+                        AddImageButton(
+                          onPressed: model.pickImages,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 16.h),
+                    SizedBox(
+                      height: 180.h,
+                      child: TextFormField(
+                        maxLines: null,
+                        keyboardType: TextInputType.multiline,
+                        expands: true,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor:
+                              context.colorScheme.primary.withOpacity(0.07),
+                          labelText: 'Description',
+                          alignLabelWithHint: true,
+                          border: const UnderlineInputBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              topRight: Radius.circular(8),
+                            ),
                           ),
                         ),
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) {
+                          if ((value?.trim() ?? '').isEmpty) {
+                            return 'required';
+                          }
+                          return null;
+                        },
                       ),
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (value) {
-                        if ((value?.trim() ?? '').isEmpty) {
-                          return 'required';
-                        }
-                        return null;
-                      },
                     ),
-                  ),
-                  SizedBox(height: 16.h),
-                  AppElevatedButton(
-                    onPressed: model.send,
-                    child: const Text('Send'),
-                  )
-                ],
+                    SizedBox(height: 16.h),
+                    AppElevatedButton(
+                      onPressed: model.send,
+                      child: const Text('Send'),
+                    )
+                  ],
+                ),
               ),
             );
           }),

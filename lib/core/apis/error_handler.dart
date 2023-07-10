@@ -20,6 +20,9 @@ class ErrorHandler implements Exception {
   ErrorHandler.handle(dynamic e) {
     if (e is DioError) {
       // dio error so its an error from response of the API or from dio itself
+      print(e.error);
+      print(e.stackTrace);
+
       failure = _handleError(e);
     } else {
       // default error

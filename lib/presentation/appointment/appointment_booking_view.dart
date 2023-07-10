@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:bimarestan/core/services/snack_bar_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,9 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../core/resources/color_manager.dart';
+import '../../core/services/snack_bar_service.dart';
 import '../../core/state_management/view_state.dart';
 import '../../locator/locator.dart';
-import '../../models/clinics/clinic.dart';
 import '../../shared/app_elevated_button.dart';
 import '../../shared/loading_widget.dart';
 import '../../shared/something_went_wrong_widget.dart';
@@ -19,8 +16,8 @@ import '../prices/price.dart';
 import 'appointment_booking_view_model.dart';
 
 part 'components/appointment_times_component.dart';
-part 'components/days_calendar_component.dart';
 part 'components/clinic_price_component.dart';
+part 'components/days_calendar_component.dart';
 
 class AppointmentBookingView extends StatelessWidget {
   const AppointmentBookingView({super.key});

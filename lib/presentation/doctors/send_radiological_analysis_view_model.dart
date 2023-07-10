@@ -1,18 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bimarestan/core/services/snack_bar_service.dart';
-import 'package:bimarestan/core/utils/dialogs.dart';
-import 'package:bimarestan/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../core/apis/error_handler.dart';
+import '../../core/services/snack_bar_service.dart';
+import '../../core/utils/dialogs.dart';
 import '../../data/patient_analyzes/patient_analyzes_repository.dart';
 import '../../locator/locator.dart';
 import '../../models/patient_analyzes/send_analyzes_request.dart';
+import '../../router/routes.dart';
 
 @injectable
 class SendRadiologicalAnalysisViewModel extends ChangeNotifier {
@@ -81,8 +81,9 @@ class SendRadiologicalAnalysisViewModel extends ChangeNotifier {
       _snackBarService.showSuccessSnackBar(
         'Your analyzes sent successfully',
       );
-      _navigationService
-          .popUntil((route) => route.settings.name == Routes.landing);
+      _navigationService.popUntil(
+        (route) => route.settings.name == Routes.landing,
+      );
     } on ErrorHandler catch (e) {
       dismissLoadingDialog();
       _snackBarService.showErrorSnackBar(

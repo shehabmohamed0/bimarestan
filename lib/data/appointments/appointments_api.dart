@@ -1,9 +1,8 @@
-import '../../core/apis/api_utils.dart';
-import '../../models/appointments/create_appointment_request.dart';
-import '../../presentation/prices/price.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../core/apis/api_utils.dart';
 import '../../models/appointments/appointment.dart';
+import '../../models/appointments/create_appointment_request.dart';
 
 @lazySingleton
 class AppointmentsAPI {
@@ -33,9 +32,10 @@ class AppointmentsAPI {
     return Appointment.fromJson(response.data! as Map<String, dynamic>);
   }
 
-  Future<List<Appointment>> getAppointments() async {
-    await Future.delayed(const Duration(seconds: 1));
-    return [];
+  Future<void> cancelAppointment(Appointment appointment, int userId) async {
+    await DioFactory.dio.get(
+      '$featurePath/cancelAppointment${appointment.id}/$userId',
+    );
   }
 }
 

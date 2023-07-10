@@ -1,4 +1,5 @@
 import 'package:bimarestan/presentation/appointment/appointment_details_view.dart';
+import 'package:bimarestan/presentation/chat/chat_view.dart';
 import 'package:bimarestan/presentation/doctors/send_radiological_analysis_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,7 @@ import '../presentation/appointment/appointment_booking_view.dart';
 import '../presentation/auth/app/landing_view.dart';
 import '../presentation/auth/login/login_view_model.dart';
 import '../presentation/auth/signup/signup_view.dart';
+import '../presentation/chat/doctors_chats_view.dart';
 import '../presentation/clinics/clinics_view.dart';
 import '../presentation/doctors/radiological_analyzes_view.dart';
 import '../presentation/doctors/surgery_booking_view.dart';
@@ -63,6 +65,22 @@ class AppRouter {
           settings: settings,
           builder: (context) => const RadiologicalAnalyzesView(),
         );
+      case Routes.specialitiesChats:
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => const DoctorsChatsView(),
+        );
+      case Routes.chat:
+        final arguments = settings.arguments as Map<String, dynamic>;
+        return _getPageRoute(
+          settings: settings,
+          builder: (context) => ChatView(
+            senderId: arguments['senderId'] as int,
+            senderName: arguments['senderName'] as String,
+            recieverId: arguments['recieverId'] as int,
+            recieverName: arguments['recieverName'] as String,
+          ),
+        );
       case Routes.clinics:
         return _getPageRoute(
           settings: settings,
@@ -83,6 +101,7 @@ class AppRouter {
           settings: settings,
           builder: (context) => const AppointmentDetailsView(),
         );
+
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(

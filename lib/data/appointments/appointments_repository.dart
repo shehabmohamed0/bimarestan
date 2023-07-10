@@ -36,10 +36,9 @@ class AppointmentsRepository {
     }
   }
 
-  Future<List<Appointment>> getAppointments() async {
+  Future<void> cancelAppointment(Appointment appointment, int userId) async {
     try {
-      final appointments = await _api.getAppointments();
-      return appointments;
+      await _api.cancelAppointment(appointment, userId);
     } catch (e) {
       throw ErrorHandler.handle(e);
     }

@@ -1,15 +1,15 @@
-import 'package:bimarestan/core/resources/color_manager.dart';
-import 'package:bimarestan/locator/locator.dart';
-import 'package:bimarestan/models/appointments/appointment.dart';
-import 'package:bimarestan/presentation/appointment/appointment_booking_view_model.dart';
-import 'package:bimarestan/presentation/appointment/appointment_details_view_model.dart';
-import 'package:bimarestan/shared/loading_widget.dart';
+import 'package:bimarestan/presentation/auth/app/app_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/resources/color_manager.dart';
 import '../../core/state_management/view_state.dart';
+import '../../locator/locator.dart';
+import '../../models/appointments/appointment.dart';
+import '../../shared/loading_widget.dart';
+import 'appointment_booking_view_model.dart';
+import 'appointment_details_view_model.dart';
 
 class AppointmentDetailsView extends StatelessWidget {
   const AppointmentDetailsView({super.key});
@@ -23,6 +23,56 @@ class AppointmentDetailsView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Appointments Details'),
+          actions: [
+            // cancel appointment button
+            if (!appointment.cancelled)
+              Builder(builder: (context) {
+                return FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                        title: const Text('Cancel Appointment'),
+                        content: const Text(
+                            'Are you sure you want to cancel this appointment?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text(
+                              'close',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ),
+                          FilledButton(
+                            style: FilledButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              foregroundColor: Colors.white,
+                            ),
+                            onPressed: () {
+                              context
+                                  .read<AppointmentDetailsViewModel>()
+                                  .cancelAppointment(
+                                    appointment,
+                                    context.read<AppModel>().profile!.id,
+                                  );
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('Yes'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: const Text('Cancel'),
+                );
+              }),
+          ],
         ),
         body: Consumer<AppointmentDetailsViewModel>(
           builder: (context, model, child) {
@@ -73,6 +123,8 @@ class AppointmentDetailsView extends StatelessWidget {
                                       currentAppointmentTime,
                                   isCheckingNow: isCheckingNow,
                                   isReserved: isReserved,
+                                  isCancelled: isUserAppointment &&
+                                      appointment.cancelled,
                                 ),
                               ),
                             ),
@@ -99,6 +151,7 @@ class AppointmentListTile extends StatelessWidget {
     required this.currentAppointmentTime,
     required this.isCheckingNow,
     required this.isReserved,
+    required this.isCancelled,
   });
   final int index;
   final bool isUserAppointment;
@@ -106,6 +159,7 @@ class AppointmentListTile extends StatelessWidget {
   final DateTime currentAppointmentTime;
   final bool isCheckingNow;
   final bool isReserved;
+  final bool isCancelled;
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +201,16 @@ class AppointmentListTile extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                   const SizedBox(height: 4),
-                  if (isPassed)
+                  if (isCancelled)
+                    Text(
+                      'Cancelled',
+                      style: TextStyle(
+                        color: Colors.red.shade900,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  else if (isPassed)
                     Text(
                       'Passed',
                       style: TextStyle(

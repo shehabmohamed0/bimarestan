@@ -12,7 +12,6 @@ import 'core/services/notification_service.dart';
 import 'core/services/snack_bar_service.dart';
 import 'localizations/l10n.dart';
 import 'locator/locator.dart';
-import 'presentation/appointment/appointment_booking_view.dart';
 import 'presentation/auth/app/app_model.dart';
 import 'presentation/notifications/notifications_model.dart';
 import 'presentation/specialities/specialities_model.dart';

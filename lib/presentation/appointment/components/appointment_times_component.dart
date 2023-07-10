@@ -5,21 +5,27 @@ class _AppointmentTimesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Selector<AppointmentViewModel, Tuple2<List<DateTime>, DateTime?>>(
-      selector: (_, model) => Tuple2(
+    return Selector<AppointmentViewModel,
+        Tuple3<List<DateTime>, DateTime?, DateTime?>>(
+      selector: (_, model) => Tuple3(
         model.availableTimes,
         model.selectedTime,
+        model.selectedAppointmentDate,
       ),
       builder: (context, tuple, _) {
         final model = context.read<AppointmentViewModel>();
         return Wrap(
           children: tuple.value1.map((e) {
-            final timeNow = TimeOfDay.fromDateTime(DateTime.now());
-            final timeSelected = TimeOfDay.fromDateTime(e);
+            final timeNow = DateTime.now();
+            final timeSelected = DateTime(
+              tuple.value3!.year,
+              tuple.value3!.month,
+              tuple.value3!.day,
+              e.hour,
+              e.minute,
+            );
 
-            bool isBefore = timeNow.hour > timeSelected.hour ||
-                (timeNow.hour == timeSelected.hour &&
-                    timeNow.minute > timeSelected.minute);
+            bool isBefore = timeSelected.isBefore(timeNow);
 
             return Container(
               margin: EdgeInsets.fromLTRB(0, 0, 4.w, 0),

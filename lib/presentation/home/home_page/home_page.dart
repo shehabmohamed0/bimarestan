@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).pushNamed(
                         Routes.specialities,
-                        arguments: Routes.specialitiesRadiology,
+                        arguments: Routes.specialitiesChats,
                       );
                     },
                   ),

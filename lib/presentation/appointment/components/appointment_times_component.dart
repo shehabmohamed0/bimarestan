@@ -14,18 +14,20 @@ class _AppointmentTimesComponent extends StatelessWidget {
       ),
       builder: (context, tuple, _) {
         final model = context.read<AppointmentViewModel>();
+        log(DateTime.now().toString());
         return Wrap(
           children: tuple.value1.map((e) {
             final timeNow = DateTime.now();
-            final timeSelected = DateTime(
+            final currentTime = DateTime(
               tuple.value3!.year,
               tuple.value3!.month,
               tuple.value3!.day,
               e.hour,
               e.minute,
             );
+            log(currentTime.toString());
 
-            bool isBefore = timeSelected.isBefore(timeNow);
+            bool isBefore = currentTime.isBefore(timeNow);
 
             return Container(
               margin: EdgeInsets.fromLTRB(0, 0, 4.w, 0),
@@ -47,7 +49,7 @@ class _AppointmentTimesComponent extends StatelessWidget {
                         model.setSelectedAppointmentTime(e);
                       },
                 label: Text(
-                  format(e),
+                  format(currentTime),
                 ),
               ),
             );

@@ -55,7 +55,9 @@ class ChatView extends StatelessWidget {
                 );
               case ViewState.success:
                 return StreamBuilder<List<Message>>(
-                  stream: model.messagesStream,
+                  stream: model.conversationId != null
+                      ? model.messagesStream
+                      : model.emptyStream,
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const LoadingWidget();
@@ -63,30 +65,39 @@ class ChatView extends StatelessWidget {
                             ConnectionState.active ||
                         snapshot.connectionState == ConnectionState.done) {
                       if (snapshot.hasError) {
-                        log('error ${snapshot.error}');
                         return SomethingWentWrongWidget(
                           onTap: () {},
                         );
-                      } else if (snapshot.hasData) {
+                      } else {
+                        log(snapshot.data.toString());
                         return Column(
                           children: [
-                            Expanded(
-                              child: ListView.builder(
-                                padding: const EdgeInsets.all(16),
-                                reverse: true,
-                                itemCount: snapshot.data!.length,
-                                itemBuilder: (context, index) {
-                                  final message = snapshot.data![index];
-                                  return MessageCard(
-                                    isMe: message.senderId == senderId,
-                                    message: message.text,
-                                    images: message.images,
-                                    createdAt:
-                                        message.createdAt ?? DateTime.now(),
-                                  );
-                                },
+                            if (snapshot.data!.isEmpty)
+                              const Expanded(
+                                child: Center(
+                                  child: Text(
+                                    'No messages yet',
+                                  ),
+                                ),
+                              )
+                            else
+                              Expanded(
+                                child: ListView.builder(
+                                  padding: const EdgeInsets.all(16),
+                                  reverse: true,
+                                  itemCount: snapshot.data!.length,
+                                  itemBuilder: (context, index) {
+                                    final message = snapshot.data![index];
+                                    return MessageCard(
+                                      isMe: message.senderId == senderId,
+                                      message: message.text,
+                                      images: message.images,
+                                      createdAt:
+                                          message.createdAt ?? DateTime.now(),
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 16,
@@ -207,8 +218,6 @@ class ChatView extends StatelessWidget {
                             ),
                           ],
                         );
-                      } else {
-                        return const Text('Empty data');
                       }
                     } else {
                       return const Text('empty');

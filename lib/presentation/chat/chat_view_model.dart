@@ -8,7 +8,6 @@ import '../../core/utils/dialogs.dart';
 import '../../locator/locator.dart';
 import 'data/chat_api.dart';
 import 'data/images_api.dart';
-import 'models/conversation.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -19,8 +18,10 @@ class ChatViewModel extends ChangeNotifier {
   final ChatAPI _api = ChatAPI();
   final ImagesApi _imagesApi = ImagesApi();
   final SnackBarService _snackBarService = locator<SnackBarService>();
-  late final Stream<List<Message>> messagesStream;
-  late final Conversation conversation;
+
+  Stream<List<Message>> emptyStream = Stream.value([]);
+  late Stream<List<Message>> messagesStream;
+  String? conversationId;
 
   final TextEditingController messageController = TextEditingController();
 
@@ -29,7 +30,6 @@ class ChatViewModel extends ChangeNotifier {
   late int patientId;
   late String patientName;
 
-  bool converstationExists = false;
   ViewState viewState = ViewState.loading;
   List<File> images = [];
 
@@ -46,21 +46,19 @@ class ChatViewModel extends ChangeNotifier {
     viewState = ViewState.loading;
     notifyListeners();
     try {
-      if (!converstationExists) {
-        conversation = await _api.getConversationIfNotCreateOne(
-          doctorId: doctorId,
-          doctorName: doctorName,
-          patientId: patientId,
-          patientName: patientName,
-        );
+      final conversation = await _api.getConversation(
+        doctorId: doctorId,
+        patientId: patientId,
+      );
+      if (conversation != null) {
+        conversationId = conversation.id;
+        messagesStream = _api.getMessagesStream(conversationId!);
       }
-      messagesStream = _api.getMessages(conversation.id);
-      converstationExists = true;
       viewState = ViewState.success;
       notifyListeners();
     } catch (e, s) {
-      print(e);
-      print(s);
+      debugPrint(e.toString());
+      debugPrint(s.toString());
       viewState = ViewState.error;
       notifyListeners();
     }
@@ -77,15 +75,22 @@ class ChatViewModel extends ChangeNotifier {
       showLoadingDialog();
       final List<String> imageUrls = await _imagesApi.uploadImages(images);
 
-      await _api.sendMessage(
-        conversationId: conversation.id,
+      final message = await _api.sendMessage(
+        conversationId: conversationId,
         senderId: patientId,
+        senderName: patientName,
         recieverId: doctorId,
+        recieverName: doctorName,
         text: messageController.text.trim(),
         images: imageUrls,
       );
       messageController.clear();
       images = [];
+      if (conversationId == null) {
+        conversationId = message.conversationId;
+        messagesStream = _api.getMessagesStream(conversationId!);
+        notifyListeners();
+      }
       dismissLoadingDialog();
     } catch (e) {
       dismissLoadingDialog();

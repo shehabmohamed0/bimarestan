@@ -14,7 +14,9 @@ class DoctorsRepository {
     try {
       final doctors = await _api.getDoctors(request);
       return doctors;
-    } catch (e) {
+    } catch (e, s) {
+      print(e.toString());
+      print(s.toString());
       throw ErrorHandler.handle(e);
     }
   }

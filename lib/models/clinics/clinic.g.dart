@@ -18,9 +18,9 @@ Clinic _$ClinicFromJson(Map<String, dynamic> json) => Clinic(
       endWork: (json['endWork'] as num).toDouble(),
       doctorId: json['doctorId'] as int,
       doctorName: json['doctorFullName'] as String,
-      doctorJobTitle: json['doctorJobTitle'] as String,
+      doctorJobTitle: json['doctorJobTitle'] as String?,
       doctorPhone: json['doctorPhone'] as String,
-      doctorDescription: json['doctorDescription'] as String,
+      doctorDescription: json['doctorDescription'] as String?,
     );
 
 Map<String, dynamic> _$ClinicToJson(Clinic instance) => <String, dynamic>{

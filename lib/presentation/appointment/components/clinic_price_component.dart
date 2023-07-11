@@ -13,7 +13,9 @@ class _ClinicPriceComponent extends StatelessWidget {
         return Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Booking salary ${prices.first.price} \$',
+            prices.isEmpty
+                ? r'Booking salary: $30'
+                : 'Booking salary ${prices.first.price} \$',
             style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,

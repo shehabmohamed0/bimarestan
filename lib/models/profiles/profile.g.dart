@@ -13,7 +13,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       phone: json['phone'] as String,
       image: json['image'] as String?,
       address: json['address'] as String,
-      description: json['description'] as String,
+      description: json['description'] as String?,
       jobTitle: json['jobTitle'] as String?,
       age: json['age'] as int,
       roleId: $enumDecode(_$RoleIdEnumMap, json['roleId']),

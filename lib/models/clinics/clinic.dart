@@ -16,9 +16,9 @@ class Clinic {
   final int doctorId;
   @JsonKey(name: 'doctorFullName')
   final String doctorName;
-  final String doctorJobTitle;
+   String? doctorJobTitle;
   final String doctorPhone;
-  final String doctorDescription;
+  final String? doctorDescription;
 
   Clinic({
     required this.id,

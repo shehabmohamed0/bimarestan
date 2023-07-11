@@ -12,7 +12,7 @@ class Profile {
   final String phone;
   final String? image;
   final String address;
-  final String description;
+  final String? description;
   final String? jobTitle;
   final int age;
   final RoleId roleId;
@@ -30,7 +30,7 @@ class Profile {
     required this.phone,
     this.image,
     required this.address,
-    required this.description,
+     this.description,
     this.jobTitle,
     required this.age,
     required this.roleId,

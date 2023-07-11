@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:developer';
 
 import 'package:bimarestan/core/utils/dialogs.dart';
 import 'package:bimarestan/models/profiles/profile.dart';
@@ -254,7 +255,9 @@ String format(DateTime date) {
 // split working hours to 30 minutes
 List<DateTime> getAllTimesOf(Clinic clinic) {
   final startWork = convertDoubleToDate(clinic.startWork);
+  log(clinic.startWork.toString());
   final endWork = convertDoubleToDate(clinic.endWork);
+  log(clinic.endWork.toString());
   final workingHours = <DateTime>[];
   var currentHour = startWork;
   while (currentHour.isBefore(endWork)) {

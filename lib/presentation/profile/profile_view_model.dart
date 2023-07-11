@@ -41,7 +41,7 @@ class ProfileViewModel extends ChangeNotifier {
     email.text = profile.email;
     selectedGovernate = Governate(id: 0, name: profile.address);
     age.text = profile.age.toString();
-    description.text = profile.description;
+    description.text = profile.description ?? '';
     phoneNumber = await _preparePhone(profile);
     notifyListeners();
   }

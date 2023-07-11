@@ -16,7 +16,9 @@ class ClinicRepository {
     try {
       final clinics = await _api.getClinics(request);
       return clinics;
-    } catch (e) {
+    } catch (e, s) {
+      print(e.toString());
+      print(s.toString());
       throw ErrorHandler.handle(e);
     }
   }
@@ -29,7 +31,6 @@ class ClinicRepository {
       throw ErrorHandler.handle(e);
     }
   }
-
 
   Future<List<Price>> getPrices(int clinicId) async {
     try {

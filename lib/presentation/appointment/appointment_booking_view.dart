@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -79,7 +81,7 @@ class AppointmentBookingView extends StatelessWidget {
                           model.clinic.doctorName,
                         ),
                         Text(
-                          model.clinic.doctorJobTitle,
+                          model.clinic.doctorJobTitle ?? 'no job title',
                         ),
                         SizedBox(
                           height: 30.h,

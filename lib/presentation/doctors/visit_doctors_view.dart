@@ -130,7 +130,7 @@ class HealthCard extends StatelessWidget {
                     style: TextStyle(fontSize: 16.sp),
                   ),
                   Text(
-                    profile.jobTitle!,
+                    profile.jobTitle ?? 'No job title',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 16.sp),
@@ -147,7 +147,7 @@ class HealthCard extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
           Text(
-            profile.description,
+            profile.description ?? 'No description',
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(color: Colors.black54),
